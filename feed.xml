@@ -1,28 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
 <channel>
-<atom:link href='https://noitcudni.github.io/blog' rel='self' type='application/rss+xml'/>
+<atom:link href='https://noitcudni.github.io/' rel='self' type='application/rss+xml'/>
 <title>
 (polymorphic-labs/blog)
 </title>
 <link>
-https://noitcudni.github.io/blog
+https://noitcudni.github.io/
 </link>
 <description>
 Programming related stuff
 </description>
 <lastBuildDate>
-Sun, 25 Nov 2018 20:59:06 -0800
+Sun, 25 Nov 2018 21:03:53 -0800
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
 <item>
 <guid>
-https://noitcudni.github.io/blog/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/
+https://noitcudni.github.io/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/
 </guid>
 <link>
-https://noitcudni.github.io/blog/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/
+https://noitcudni.github.io/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/
 </link>
 <title>
 Chrome Extension: Bulk Google Webmaster Outdated Content Removal
@@ -40,10 +40,10 @@ Mon, 22 Oct 2018 00:00:00 -0700
 </item>
 <item>
 <guid>
-https://noitcudni.github.io/blog/posts-output/2018-01-13-reagent-d3-force-directed-graph/
+https://noitcudni.github.io/posts-output/2018-01-13-reagent-d3-force-directed-graph/
 </guid>
 <link>
-https://noitcudni.github.io/blog/posts-output/2018-01-13-reagent-d3-force-directed-graph/
+https://noitcudni.github.io/posts-output/2018-01-13-reagent-d3-force-directed-graph/
 </link>
 <title>
 Force-directed graph with D3js in Clojurescript

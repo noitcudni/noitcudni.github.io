@@ -2,7 +2,7 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url>
 <loc>
-https://noitcudni.github.io/blogauthors-output/Lih Chen/index.html
+https://noitcudni.github.io/authors-output/Lih Chen/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -10,7 +10,7 @@ https://noitcudni.github.io/blogauthors-output/Lih Chen/index.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogindex.html
+https://noitcudni.github.io/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -18,7 +18,7 @@ https://noitcudni.github.io/blogindex.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blog404.html
+https://noitcudni.github.io/404.html
 </loc>
 <lastmod>
 2018-11-25
@@ -26,7 +26,7 @@ https://noitcudni.github.io/blog404.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogarchives/index.html
+https://noitcudni.github.io/archives/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -34,7 +34,7 @@ https://noitcudni.github.io/blogarchives/index.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogtags/index.html
+https://noitcudni.github.io/tags/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -42,7 +42,7 @@ https://noitcudni.github.io/blogtags/index.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogpages-output/about/index.html
+https://noitcudni.github.io/pages-output/about/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -50,7 +50,7 @@ https://noitcudni.github.io/blogpages-output/about/index.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogtags-output/chrome extension/index.html
+https://noitcudni.github.io/tags-output/chrome extension/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -58,7 +58,7 @@ https://noitcudni.github.io/blogtags-output/chrome extension/index.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogtags-output/reagent/index.html
+https://noitcudni.github.io/tags-output/reagent/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -66,7 +66,7 @@ https://noitcudni.github.io/blogtags-output/reagent/index.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogtags-output/seo tools/index.html
+https://noitcudni.github.io/tags-output/seo tools/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -74,7 +74,7 @@ https://noitcudni.github.io/blogtags-output/seo tools/index.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogtags-output/d3/index.html
+https://noitcudni.github.io/tags-output/d3/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -82,7 +82,7 @@ https://noitcudni.github.io/blogtags-output/d3/index.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogtags-output/cljs/index.html
+https://noitcudni.github.io/tags-output/cljs/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -90,7 +90,7 @@ https://noitcudni.github.io/blogtags-output/cljs/index.html
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogposts-output/2018-01-13-reagent-d3-force-directed-graph/index.html
+https://noitcudni.github.io/posts-output/2018-01-13-reagent-d3-force-directed-graph/index.html
 </loc>
 <lastmod>
 2018-11-25
@@ -98,7 +98,7 @@ https://noitcudni.github.io/blogposts-output/2018-01-13-reagent-d3-force-directe
 </url>
 <url>
 <loc>
-https://noitcudni.github.io/blogposts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/index.html
+https://noitcudni.github.io/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/index.html
 </loc>
 <lastmod>
 2018-11-25
