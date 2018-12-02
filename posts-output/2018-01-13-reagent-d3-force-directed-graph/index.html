@@ -233,7 +233,7 @@
                            &#40;.attr &quot;y1&quot; &#40;fn &#91;&#95; idx&#93;
                                          &#40;-&gt; &#40;get link-dataset idx&#41;
                                              .-source .-y&#41;&#41;&#41;
-                           &#40;.attr &quot;x2&quot; &#40;fn &#91;&#95; idx&#93;		
+                           &#40;.attr &quot;x2&quot; &#40;fn &#91;&#95; idx&#93;
                                          &#40;-&gt; &#40;get link-dataset idx&#41;
                                              .-target .-x&#41;&#41;&#41;
                            &#40;.attr &quot;y2&quot; &#40;fn &#91;&#95; idx&#93;
@@ -251,7 +251,7 @@
         &#40;.force &quot;link&quot;&#41;
         &#40;.links link-dataset&#41;&#41;
     &#41;&#41;
-</code></pre><p>In the beginning of the <code>sim-did-update</code> function, we create a <code>forceSimulation</code> instance. To really get the simulation started, we'll need to add the link force and the nodes to the <code>forceSimulation</code> instance and update the new positions for the node and link elements on every tick.</p><p>As alluded to in the earlier section, we'll retrieve the previously created node and link elements from <code>reframe/subscribe</code>. Once again the <code>:get-var</code> subscription should be fairly straightforward to implement. As always, you can take a look the actual code in github.</p><p>One thing that I'd like to point out here is that the new coordinates will get assigned to the <code>ratom</code>, namely <code>&#40;-&gt; @ratom &#40;get :dataset&#41; &#40;get :nodes&#41;&#41;</code> and  <code>&#40;-&gt; @raom &#40;get :dataset&#41; &#40;get :links&#41;&#41;</code> by the d3 simulation engine. Both <code>node-dataset</code> and <code>link-dataset</code> must be converted to javascript objects or it won't work.</p><p><img src="//img/d3-force-directed-1.png" alt="d3 force directed graph in cljs" /></p><p>Voila!</p><h3 id="making&#95;it&#95;draggable">Making it draggable</h3><p>D3 itself already provides a nice API for drag and drop. We'll need to invoke D3's drag api with our <code>node-elements</code>.<pre><code class="clojure">&#40;-&gt; node
+</code></pre><p>In the beginning of the <code>sim-did-update</code> function, we create a <code>forceSimulation</code> instance. To really get the simulation started, we'll need to add the link force and the nodes to the <code>forceSimulation</code> instance and update the new positions for the node and link elements on every tick.</p><p>As alluded to in the earlier section, we'll retrieve the previously created node and link elements from <code>reframe/subscribe</code>. Once again the <code>:get-var</code> subscription should be fairly straightforward to implement. As always, you can take a look the actual code in github.</p><p>One thing that I'd like to point out here is that the new coordinates will get assigned to the <code>ratom</code>, namely <code>&#40;-&gt; @ratom &#40;get :dataset&#41; &#40;get :nodes&#41;&#41;</code> and  <code>&#40;-&gt; @raom &#40;get :dataset&#41; &#40;get :links&#41;&#41;</code> by the d3 simulation engine. Both <code>node-dataset</code> and <code>link-dataset</code> must be converted to javascript objects or it won't work.</p><p><img src="../../img/d3-force-directed-1.png" alt="d3 force directed graph in cljs" /></p><p>Voila!</p><h3 id="making&#95;it&#95;draggable">Making it draggable</h3><p>D3 itself already provides a nice API for drag and drop. We'll need to invoke D3's drag api with our <code>node-elements</code>.<pre><code class="clojure">&#40;-&gt; node
   &#40;.attr &quot;r&quot; &#40;fn &#91;d&#93;
                5&#41;&#41;
   &#40;.attr &quot;fill&quot; &#40;fn &#91;n&#93;
@@ -283,7 +283,7 @@
       &#40;-&gt; sim &#40;.alphaTarget 0&#41;&#41;&#41;
     &#40;set! &#40;.-fx d&#41; nil&#41;
     &#40;set! &#40;.-fy d&#41; nil&#41;&#41;&#41;
-</code></pre>						
+</code></pre>
 </div>
 
 <div id="post-tags">
@@ -337,6 +337,8 @@
                     <h3>Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts-output/2018-12-01-workingpoint-ios-app/">An iOS invoicing app built specifically for WorkingPoint</a></li>
+                        
                         <li><a href="/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/">Chrome Extension: Bulk Google Webmaster Outdated Content Removal</a></li>
                         
                         <li><a href="/posts-output/2018-01-13-reagent-d3-force-directed-graph/">Force-directed graph with D3js in Clojurescript</a></li>
@@ -349,11 +351,17 @@
                     <h3>Tags</h3>
                     <ul>
                         
+                        <li><a href="/tags-output/mobile app/">mobile app</a></li>
+                        
+                        <li><a href="/tags-output/cljs/">cljs</a></li>
+                        
+                        <li><a href="/tags-output/re-natal/">re-natal</a></li>
+                        
+                        <li><a href="/tags-output/ios/">ios</a></li>
+                        
                         <li><a href="/tags-output/chrome extension/">chrome extension</a></li>
                         
                         <li><a href="/tags-output/seo tools/">seo tools</a></li>
-                        
-                        <li><a href="/tags-output/cljs/">cljs</a></li>
                         
                         <li><a href="/tags-output/d3/">d3</a></li>
                         

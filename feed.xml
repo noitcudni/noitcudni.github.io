@@ -12,11 +12,28 @@ https://noitcudni.github.io/
 Programming related stuff
 </description>
 <lastBuildDate>
-Sun, 25 Nov 2018 21:03:53 -0800
+Sun, 02 Dec 2018 13:18:16 -0800
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://noitcudni.github.io/posts-output/2018-12-01-workingpoint-ios-app/
+</guid>
+<link>
+https://noitcudni.github.io/posts-output/2018-12-01-workingpoint-ios-app/
+</link>
+<title>
+An iOS invoicing app built specifically for WorkingPoint
+</title>
+<description>
+&lt;p&gt;When it comes to accounting/bookkeeping software, in my opinion, WorkingPoint is the best bang for the buck. I have been using WorkingPoint since 2014 to keep track of my S Corp revenue, expenses, and to send my customers invoices. At the end of the year, I can generate a balance sheet and a cash flow statement with a click of a button and send those reports to my accountant. All that for a grand total of $99/year. I'm pretty confident that you can't find another solution at that price point. OK, I suppose that you can track everything in a spreadsheet, but that's not my cup of tea.&lt;/p&gt;&lt;p&gt;Unfortunately, its banking integration with my bank somehow stopped working about 2 years ago, which led to many frustrations. It caused me so much pain that I almost gave up on them entirely. Instead, I spent a weekend writing a Chrome extension to import expenses from my bank statement. That's a post for another day.&lt;/p&gt;&lt;p&gt;Today I'll focus on another major flaw with the product: it does not have a mobile solution of any kind. There's no native app nor is their web solution optimized for mobile. So, I took the matter into my own hand again and wrote an iOS app specifically for WorkingPoint with &lt;a href='https://github.com/drapanjanas/re-natal'&gt;re-natal&lt;/a&gt; (basically, react native but in Clojurescript). In layman's term, this will provide the user with a native app experience. After months of working it on the side plus another month of dealing with Apple's approval process, it's finally live. You can find it here: https://itunes.apple.com/us/app/invoice-puppy/id1438335818?ls=1&amp;mt=8. The name of my app is Invoice Puppy. I figured why not have a cute animal as the face of my app.&lt;/p&gt;&lt;p&gt;Sorry, it doesn't do all the things that Workingpoint website does. My only goal was to be able to create invoices and quotes and to perform other peripheral functions related to invoicing, such as contact and item creation. Also, you can email your customer the invoice directly from the app. The following is several screenshots of the app.&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;../../img/invoice-puppy/300x0w.png&quot; alt=&quot;list of invoices&quot; /&gt; &lt;img src=&quot;../../img/invoice-puppy/300x0w&amp;#40;1&amp;#41;.png&quot; alt=&quot;list of customers&quot; /&gt;&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;../../img/invoice-puppy/300x0w&amp;#40;2&amp;#41;.png&quot; alt=&quot;email invoice&quot; /&gt; &lt;img src=&quot;../../img/invoice-puppy/300x0w&amp;#40;3&amp;#41;.png&quot; alt=&quot;invoice creation&quot; /&gt;&lt;/p&gt;&lt;p&gt;I've decided to sell the app for $19.99. I've done a bunch of testing, but I'm sure that there are still bugs. Should you run into any issues, please feel free to file an issue on &lt;a href='https://github.com/noitcudni/invoice-puppy-workingpoint/issues'&gt;here&lt;/a&gt;. I'll address them in a timely manner.&lt;/p&gt;
+</description>
+<pubDate>
+Sat, 01 Dec 2018 00:00:00 -0800
+</pubDate>
+</item>
 <item>
 <guid>
 https://noitcudni.github.io/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/
@@ -207,7 +224,7 @@ Force-directed graph with D3js in Clojurescript
                            &amp;#40;.attr &amp;quot;y1&amp;quot; &amp;#40;fn &amp;#91;&amp;#95; idx&amp;#93;
                                          &amp;#40;-&amp;gt; &amp;#40;get link-dataset idx&amp;#41;
                                              .-source .-y&amp;#41;&amp;#41;&amp;#41;
-                           &amp;#40;.attr &amp;quot;x2&amp;quot; &amp;#40;fn &amp;#91;&amp;#95; idx&amp;#93;		
+                           &amp;#40;.attr &amp;quot;x2&amp;quot; &amp;#40;fn &amp;#91;&amp;#95; idx&amp;#93;
                                          &amp;#40;-&amp;gt; &amp;#40;get link-dataset idx&amp;#41;
                                              .-target .-x&amp;#41;&amp;#41;&amp;#41;
                            &amp;#40;.attr &amp;quot;y2&amp;quot; &amp;#40;fn &amp;#91;&amp;#95; idx&amp;#93;
@@ -225,7 +242,7 @@ Force-directed graph with D3js in Clojurescript
         &amp;#40;.force &amp;quot;link&amp;quot;&amp;#41;
         &amp;#40;.links link-dataset&amp;#41;&amp;#41;
     &amp;#41;&amp;#41;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In the beginning of the &lt;code&gt;sim-did-update&lt;/code&gt; function, we create a &lt;code&gt;forceSimulation&lt;/code&gt; instance. To really get the simulation started, we'll need to add the link force and the nodes to the &lt;code&gt;forceSimulation&lt;/code&gt; instance and update the new positions for the node and link elements on every tick.&lt;/p&gt;&lt;p&gt;As alluded to in the earlier section, we'll retrieve the previously created node and link elements from &lt;code&gt;reframe/subscribe&lt;/code&gt;. Once again the &lt;code&gt;:get-var&lt;/code&gt; subscription should be fairly straightforward to implement. As always, you can take a look the actual code in github.&lt;/p&gt;&lt;p&gt;One thing that I'd like to point out here is that the new coordinates will get assigned to the &lt;code&gt;ratom&lt;/code&gt;, namely &lt;code&gt;&amp;#40;-&amp;gt; @ratom &amp;#40;get :dataset&amp;#41; &amp;#40;get :nodes&amp;#41;&amp;#41;&lt;/code&gt; and  &lt;code&gt;&amp;#40;-&amp;gt; @raom &amp;#40;get :dataset&amp;#41; &amp;#40;get :links&amp;#41;&amp;#41;&lt;/code&gt; by the d3 simulation engine. Both &lt;code&gt;node-dataset&lt;/code&gt; and &lt;code&gt;link-dataset&lt;/code&gt; must be converted to javascript objects or it won't work.&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;//img/d3-force-directed-1.png&quot; alt=&quot;d3 force directed graph in cljs&quot; /&gt;&lt;/p&gt;&lt;p&gt;Voila!&lt;/p&gt;&lt;h3 id=&quot;making&amp;#95;it&amp;#95;draggable&quot;&gt;Making it draggable&lt;/h3&gt;&lt;p&gt;D3 itself already provides a nice API for drag and drop. We'll need to invoke D3's drag api with our &lt;code&gt;node-elements&lt;/code&gt;.&lt;pre&gt;&lt;code class=&quot;clojure&quot;&gt;&amp;#40;-&amp;gt; node
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In the beginning of the &lt;code&gt;sim-did-update&lt;/code&gt; function, we create a &lt;code&gt;forceSimulation&lt;/code&gt; instance. To really get the simulation started, we'll need to add the link force and the nodes to the &lt;code&gt;forceSimulation&lt;/code&gt; instance and update the new positions for the node and link elements on every tick.&lt;/p&gt;&lt;p&gt;As alluded to in the earlier section, we'll retrieve the previously created node and link elements from &lt;code&gt;reframe/subscribe&lt;/code&gt;. Once again the &lt;code&gt;:get-var&lt;/code&gt; subscription should be fairly straightforward to implement. As always, you can take a look the actual code in github.&lt;/p&gt;&lt;p&gt;One thing that I'd like to point out here is that the new coordinates will get assigned to the &lt;code&gt;ratom&lt;/code&gt;, namely &lt;code&gt;&amp;#40;-&amp;gt; @ratom &amp;#40;get :dataset&amp;#41; &amp;#40;get :nodes&amp;#41;&amp;#41;&lt;/code&gt; and  &lt;code&gt;&amp;#40;-&amp;gt; @raom &amp;#40;get :dataset&amp;#41; &amp;#40;get :links&amp;#41;&amp;#41;&lt;/code&gt; by the d3 simulation engine. Both &lt;code&gt;node-dataset&lt;/code&gt; and &lt;code&gt;link-dataset&lt;/code&gt; must be converted to javascript objects or it won't work.&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;../../img/d3-force-directed-1.png&quot; alt=&quot;d3 force directed graph in cljs&quot; /&gt;&lt;/p&gt;&lt;p&gt;Voila!&lt;/p&gt;&lt;h3 id=&quot;making&amp;#95;it&amp;#95;draggable&quot;&gt;Making it draggable&lt;/h3&gt;&lt;p&gt;D3 itself already provides a nice API for drag and drop. We'll need to invoke D3's drag api with our &lt;code&gt;node-elements&lt;/code&gt;.&lt;pre&gt;&lt;code class=&quot;clojure&quot;&gt;&amp;#40;-&amp;gt; node
   &amp;#40;.attr &amp;quot;r&amp;quot; &amp;#40;fn &amp;#91;d&amp;#93;
                5&amp;#41;&amp;#41;
   &amp;#40;.attr &amp;quot;fill&amp;quot; &amp;#40;fn &amp;#91;n&amp;#93;
@@ -257,7 +274,7 @@ Force-directed graph with D3js in Clojurescript
       &amp;#40;-&amp;gt; sim &amp;#40;.alphaTarget 0&amp;#41;&amp;#41;&amp;#41;
     &amp;#40;set! &amp;#40;.-fx d&amp;#41; nil&amp;#41;
     &amp;#40;set! &amp;#40;.-fy d&amp;#41; nil&amp;#41;&amp;#41;&amp;#41;
-&lt;/code&gt;&lt;/pre&gt;						
+&lt;/code&gt;&lt;/pre&gt;
 </description>
 <pubDate>
 Sat, 13 Jan 2018 00:00:00 -0800
