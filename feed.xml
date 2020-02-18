@@ -12,11 +12,28 @@ https://noitcudni.github.io/
 Programming related stuff
 </description>
 <lastBuildDate>
-Sun, 02 Dec 2018 13:18:16 -0800
+Mon, 17 Feb 2020 17:26:35 -0800
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://noitcudni.github.io/posts-output/2020-02-17-chrome-webstore-rejection/
+</guid>
+<link>
+https://noitcudni.github.io/posts-output/2020-02-17-chrome-webstore-rejection/
+</link>
+<title>
+How my Chrome extension finally got approved again
+</title>
+<description>
+&lt;p&gt;My little Chrome &lt;a href='https://chrome.google.com/webstore/detail/webmaster-tools-bulk-url/pmnpibilljafelnghknefahibdnfeece'&gt;extension&lt;/a&gt; has been on the Chrome Web Store since March 2018. I've never had any issues getting it approved until some time in January 2020.&lt;/p&gt;&lt;p&gt;I had to make significant improvements and bug fixes, so I was eager to release it. Typically, the turn around time was about 30 minutes to 24 hours. I pressed the publish button, expecting a usual quick turnaround, but this time I waited and waited. Finally, after 2.5 weeks, they sent me a rejection email stating that I needed to &quot;narrow&quot; the list of permissions my extension was asking the users. Fair enough. It did indeed have a few permissions that were no longer needed. I promptly made the corrections and resubmit.&lt;/p&gt;&lt;p&gt;Within 24 hours they sent me another rejection letter, but this time with a very vague reason and threatening tone. &lt;img src=&quot;../../img/chrome-webstore-rejection.png&quot; alt=&quot;spam rejection&quot; /&gt;&lt;/p&gt;&lt;p&gt;What? I have at least 700+ paying customers. How was my extension suddenly spam? The worst of all it states that my extension was removed from the Chrome Web Store. Thankfully, it simply rejected my latest submission. I replied back and asked for more clarifications, but no one ever got back to me. Now my only option is just tweaking a bit here and there and resubmit. Every time I would get the same aforementioned rejection email.&lt;/p&gt;&lt;p&gt;After days of bewilderment, while poking around on my Chrome Web Store Developer page, I decided to go through the bunched up yellow notification boxes which I typically ignore, and I noticed that there's a new developer dashboard. &lt;img src=&quot;../../img/new-developer-dashboard-notification.png&quot; alt=&quot;new developer dashboard notification&quot; /&gt;&lt;/p&gt;&lt;p&gt;The new developer dashboard pretty much is the exact same thing as the old one, except there's a privacy section. Inside the privacy section, they ask a bunch of questions about the extension. For example, permission justification; was I using remote code, etc. Having dutifully answered all the questions, I gave the Publish button another press.&lt;/p&gt;&lt;p&gt;After another 24 hours, I finally received an approval email!&lt;/p&gt;&lt;p&gt;In short, go to your old developer page. Find the link to your new developer dashboard (beta) page amongst all the yellow notification boxes. Go to the privacy section and answer all the questions. Press the Publish button.&lt;/p&gt;&lt;p&gt;Good luck.&lt;/p&gt;
+</description>
+<pubDate>
+Mon, 17 Feb 2020 00:00:00 -0800
+</pubDate>
+</item>
 <item>
 <guid>
 https://noitcudni.github.io/posts-output/2018-12-01-workingpoint-ios-app/
