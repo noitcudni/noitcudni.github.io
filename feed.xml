@@ -12,11 +12,67 @@ https://noitcudni.github.io/
 Programming related stuff
 </description>
 <lastBuildDate>
-Tue, 21 Apr 2020 16:13:24 -0700
+Tue, 21 Apr 2020 22:02:08 -0700
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://noitcudni.github.io/posts-output/2020-04-21-leetcode-spiral-print-matrix/
+</guid>
+<link>
+https://noitcudni.github.io/posts-output/2020-04-21-leetcode-spiral-print-matrix/
+</link>
+<title>
+Leetcode 54 - Spiral Matrix in Clojure
+</title>
+<description>
+&lt;p&gt;Due to the entrenched interview process across the tech industry, every now and then I find myself needing to brush off my data structure/algorithm cob web prior to braving through another round of job interviews. Regardless of how many years of experience one has and ones domain knowledge, I believe that being at least familiar with the type of technical questions that might be presented during an interview is absolutely crucial.&lt;/p&gt;&lt;p&gt;On the other hand, I hate grinding through leetcode problems. If I have to do it, I might as well do it in a language I love. Some people out there may raise some concerns around using a non-mainstream language during an interview. I can attest that I did most of mine in clojure. Not only no one raised any objections, most were quite intrigued.&lt;/p&gt;&lt;p&gt;Leetcode is actually a good avenue to showcase the power and beauty of Clojure. Here I'll go over my approach to the problem step by step.&lt;/p&gt;&lt;p&gt;The following is the problem statement for &lt;a href=&quot;https://leetcode.com/problems/spiral-matrix/&quot;&gt;Spiral Matrix&lt;/a&gt;&lt;/p&gt;&lt;pre&gt;&lt;code&gt;Given a matrix of m x n elements (m rows, n columns),
+return all elements of the matrix in spiral order.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We can easily solve this by extracting the first row, followed by rotating the remainder of the matrics counter-clockwise 90 degrees. Repeat, until we exhaust the entire matrix.&lt;/p&gt;&lt;p&gt;Let's assume that our input is a vector of vectors. For example,&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;clojure&quot;&gt;[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let's focus on the rotation alone first. The &quot;difficult&quot; part is to regroup the numbers vertically. We can easily map across all the nested vectors in lockstep and reorganize the numbers into a list or a vector.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;klipse-cljs nohighlight&quot;&gt;(map vector
+     [1 2 3]
+     [4 5 6]
+     [7 8 9])
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Unfortunately, the input data is a vector of vectors. Only if we can unpack the top level vector, similar to Python's &lt;code&gt;*&lt;/code&gt; operator. This is exactly what &lt;code&gt;apply&lt;/code&gt; is for.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;klipse-cljs nohighlight&quot;&gt;(apply map vector [[1 2 3]
+                   [4 5 6]
+                   [7 8 9]])
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now we just need them in the reverse order. This is trivial. Simply call &lt;code&gt;reverse&lt;/code&gt;&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;klipse-cljs nohighlight&quot;&gt;(defn rotate [input]
+  (reverse (apply map vector input))
+  )
+
+(rotate [[1 2 3]
+         [4 5 6]
+         [7 8 9]])
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We'll use &lt;code&gt;loop&lt;/code&gt;/&lt;code&gt;recur&lt;/code&gt; to keep grabbing the first vector and rotate the rest until the input matrix withers away in front of our eyes.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;klipse-cljs nohighlight&quot;&gt;(let [input [[1 2 3]
+             [4 5 6]
+             [7 8 9]]]
+  (loop [[first-row &amp;amp; more-rows] input
+         accum []]
+    (if (nil? more-rows)
+      (concat accum first-row)
+      (recur (rotate more-rows) (concat accum first-row)))
+    ))
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Just turn that into a function and we are done.&lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;klipse-cljs nohighlight&quot;&gt;(defn spiral-print [input]
+  (loop [[first-row &amp;amp; more-rows] input
+         accum []]
+    (if (nil? more-rows)
+      (concat accum first-row)
+      (recur (rotate more-rows) (concat accum first-row)))
+    ))
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&quot;klipse-cljs nohighlight&quot;&gt;(spiral-print [[1 2 3]
+               [4 5 6]
+               [7 8 9]])
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Usually one needs to come up with space and time complexity in terms of big O. I'll leave that to you. You can find the code on my &lt;a href=&quot;https://github.com/noitcudni/leetcode-clojure-solution/blob/master/src/leetcode_clojure_solution/54_spiral_matrix.clj&quot;&gt;github repo&lt;/a&gt;.&lt;/p&gt;
+</description>
+<pubDate>
+Tue, 21 Apr 2020 00:00:00 -0700
+</pubDate>
+</item>
 <item>
 <guid>
 https://noitcudni.github.io/posts-output/2020-02-17-chrome-webstore-rejection/
@@ -28,7 +84,7 @@ https://noitcudni.github.io/posts-output/2020-02-17-chrome-webstore-rejection/
 How my Chrome extension finally got approved again
 </title>
 <description>
-&lt;p&gt;My little Chrome &lt;a href='https://chrome.google.com/webstore/detail/webmaster-tools-bulk-url/pmnpibilljafelnghknefahibdnfeece'&gt;extension&lt;/a&gt; has been on the Chrome Web Store since March 2018. I've never had any issues getting it approved until some time in January 2020.&lt;/p&gt;&lt;p&gt;I had to make significant improvements and bug fixes, so I was eager to release it. Typically, the turn around time was about 30 minutes to 24 hours. I pressed the publish button, expecting a usual quick turnaround, but this time I waited and waited. Finally, after 2.5 weeks, they sent me a rejection email stating that I needed to &quot;narrow&quot; the list of permissions my extension was asking the users. Fair enough. It did indeed have a few permissions that were no longer needed. I promptly made the corrections and resubmit.&lt;/p&gt;&lt;p&gt;Within 24 hours they sent me another rejection letter, but this time with a very vague reason and threatening tone. &lt;img src=&quot;../../img/chrome-webstore-rejection.png&quot; alt=&quot;spam rejection&quot; /&gt;&lt;/p&gt;&lt;p&gt;What? I have at least 700+ paying customers. How was my extension suddenly spam? The worst of all it states that my extension was removed from the Chrome Web Store. Thankfully, it simply rejected my latest submission. I replied back and asked for more clarifications, but no one ever got back to me. Now my only option is just tweaking a bit here and there and resubmit. Every time I would get the same aforementioned rejection email.&lt;/p&gt;&lt;p&gt;After days of bewilderment, while poking around on my Chrome Web Store Developer page, I decided to go through the bunched up yellow notification boxes which I typically ignore, and I noticed that there's a new developer dashboard. &lt;img src=&quot;../../img/new-developer-dashboard-notification.png&quot; alt=&quot;new developer dashboard notification&quot; /&gt;&lt;/p&gt;&lt;p&gt;The new developer dashboard pretty much is the exact same thing as the old one, except there's a privacy section. Inside the privacy section, they ask a bunch of questions about the extension. For example, permission justification; was I using remote code, etc. Having dutifully answered all the questions, I gave the Publish button another press.&lt;/p&gt;&lt;p&gt;After another 24 hours, I finally received an approval email!&lt;/p&gt;&lt;p&gt;In short, go to your old developer page. Find the link to your new developer dashboard (beta) page amongst all the yellow notification boxes. Go to the privacy section and answer all the questions. Press the Publish button.&lt;/p&gt;&lt;p&gt;Good luck.&lt;/p&gt;
+&lt;p&gt;My little Chrome &lt;a href=&quot;https://chrome.google.com/webstore/detail/webmaster-tools-bulk-url/pmnpibilljafelnghknefahibdnfeece&quot;&gt;extension&lt;/a&gt; has been on the Chrome Web Store since March 2018. I've never had any issues getting it approved until some time in January 2020.&lt;/p&gt;&lt;p&gt;I had to make significant improvements and bug fixes, so I was eager to release it. Typically, the turn around time was about 30 minutes to 24 hours. I pressed the publish button, expecting a usual quick turnaround, but this time I waited and waited. Finally, after 2.5 weeks, they sent me a rejection email stating that I needed to &quot;narrow&quot; the list of permissions my extension was asking the users. Fair enough. It did indeed have a few permissions that were no longer needed. I promptly made the corrections and resubmit.&lt;/p&gt;&lt;p&gt;Within 24 hours they sent me another rejection letter, but this time with a very vague reason and threatening tone. &lt;img src=&quot;../../img/chrome-webstore-rejection.png&quot; alt=&quot;spam rejection&quot; /&gt;&lt;/p&gt;&lt;p&gt;What? I have at least 700+ paying customers. How was my extension suddenly spam? The worst of all it states that my extension was removed from the Chrome Web Store. Thankfully, it simply rejected my latest submission. I replied back and asked for more clarifications, but no one ever got back to me. Now my only option is just tweaking a bit here and there and resubmit. Every time I would get the same aforementioned rejection email.&lt;/p&gt;&lt;p&gt;After days of bewilderment, while poking around on my Chrome Web Store Developer page, I decided to go through the bunched up yellow notification boxes which I typically ignore, and I noticed that there's a new developer dashboard. &lt;img src=&quot;../../img/new-developer-dashboard-notification.png&quot; alt=&quot;new developer dashboard notification&quot; /&gt;&lt;/p&gt;&lt;p&gt;The new developer dashboard pretty much is the exact same thing as the old one, except there's a privacy section. Inside the privacy section, they ask a bunch of questions about the extension. For example, permission justification; was I using remote code, etc. Having dutifully answered all the questions, I gave the Publish button another press.&lt;/p&gt;&lt;p&gt;After another 24 hours, I finally received an approval email!&lt;/p&gt;&lt;p&gt;In short, go to your old developer page. Find the link to your new developer dashboard (beta) page amongst all the yellow notification boxes. Go to the privacy section and answer all the questions. Press the Publish button.&lt;/p&gt;&lt;p&gt;Good luck.&lt;/p&gt;
 </description>
 <pubDate>
 Mon, 17 Feb 2020 00:00:00 -0800

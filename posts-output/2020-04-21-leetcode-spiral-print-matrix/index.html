@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>(polymorphic-labs/blog): Chrome Extension: Bulk Google Webmaster Outdated Content Removal</title>
-    <link rel="canonical" href="https://noitcudni.github.io/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/">
+    <title>(polymorphic-labs/blog): Leetcode 54 - Spiral Matrix in Clojure</title>
+    <link rel="canonical" href="https://noitcudni.github.io/posts-output/2020-04-21-leetcode-spiral-print-matrix/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -72,36 +72,67 @@
 <div id="post">
     <div class="post-header">
     <div id="post-meta" class="row">
-        <div class="col-lg-6">October 22, 2018</div>
+        <div class="col-lg-6">April 21, 2020</div>
         
     </div>
-    <h2>Chrome Extension: Bulk Google Webmaster Outdated Content Removal</h2>
+    <h2>Leetcode 54 - Spiral Matrix in Clojure</h2>
 </div>
 <div>
     
-    <p>My little <a href='https://github.com/noitcudni/google-webmaster-tools-bulk-url-removal'>Google Webmaster Tool Bulk URL Removal chrome extension</a> has gained quite a bit of usage. Several of those users have brought to my attention that Google Webmaster Tools also provides a way to remove outdated content, but it has a similar shortcoming: you can only remove outdated URLs one at a time. Recently, after wrapping up another side project, I decided to take a quick stab at this. You can find my extension here: <a href='https://github.com/noitcudni/google-webmaster-tools-bulk-outdated-content-removal'>https://github.com/noitcudni/google-webmaster-tools-bulk-outdated-content-removal</a>.</p><ul><li>Download the zip from github<img src="//img/github-download-zip.png" alt="Download the zip file from github" /></li><li>Unzip it somewhere.</li><li>Go to <code>chrome://extensions/</code> inside your chrome browser and turn on developer mode.</li><li>Click on <code>Load unpacked extension</code> and load the extension.</li><li>Create a CSV file with the outdated URLs. For example:<pre><code>http://out.dated.1.com/?foo=bar
-http://out.dated.1.com/?foo=baz
-http://out.dated.2.com/?foo=baz
-</li></ul>
-</code></pre><ul><li>Go to https://www.google.com/webmasters/tools/removals and you should now have a "Upload Your File" button. Please note that the extension button next to your address bar doesn't do anything, so don't click on it. Click on the "Upload Your File" button and select the csv file you created in step 5.<img src="//img/upload-your-file-screenshot.png" alt="Upload your file to start bulk outdated content removals" /></li></ul>
+    <p>Due to the entrenched interview process across the tech industry, every now and then I find myself needing to brush off my data structure/algorithm cob web prior to braving through another round of job interviews. Regardless of how many years of experience one has and ones domain knowledge, I believe that being at least familiar with the type of technical questions that might be presented during an interview is absolutely crucial.</p><p>On the other hand, I hate grinding through leetcode problems. If I have to do it, I might as well do it in a language I love. Some people out there may raise some concerns around using a non-mainstream language during an interview. I can attest that I did most of mine in clojure. Not only no one raised any objections, most were quite intrigued.</p><p>Leetcode is actually a good avenue to showcase the power and beauty of Clojure. Here I'll go over my approach to the problem step by step.</p><p>The following is the problem statement for <a href="https://leetcode.com/problems/spiral-matrix/">Spiral Matrix</a></p><pre><code>Given a matrix of m x n elements (m rows, n columns),
+return all elements of the matrix in spiral order.
+</code></pre><p>We can easily solve this by extracting the first row, followed by rotating the remainder of the matrics counter-clockwise 90 degrees. Repeat, until we exhaust the entire matrix.</p><p>Let's assume that our input is a vector of vectors. For example,</p><pre><code class="clojure">[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+</code></pre><p>Let's focus on the rotation alone first. The "difficult" part is to regroup the numbers vertically. We can easily map across all the nested vectors in lockstep and reorganize the numbers into a list or a vector.</p><pre><code class="klipse-cljs nohighlight">(map vector
+     [1 2 3]
+     [4 5 6]
+     [7 8 9])
+</code></pre><p>Unfortunately, the input data is a vector of vectors. Only if we can unpack the top level vector, similar to Python's <code>*</code> operator. This is exactly what <code>apply</code> is for.</p><pre><code class="klipse-cljs nohighlight">(apply map vector [[1 2 3]
+                   [4 5 6]
+                   [7 8 9]])
+</code></pre><p>Now we just need them in the reverse order. This is trivial. Simply call <code>reverse</code></p><pre><code class="klipse-cljs nohighlight">(defn rotate [input]
+  (reverse (apply map vector input))
+  )
+
+(rotate [[1 2 3]
+         [4 5 6]
+         [7 8 9]])
+</code></pre><p>We'll use <code>loop</code>/<code>recur</code> to keep grabbing the first vector and rotate the rest until the input matrix withers away in front of our eyes.</p><pre><code class="klipse-cljs nohighlight">(let [input [[1 2 3]
+             [4 5 6]
+             [7 8 9]]]
+  (loop [[first-row &amp; more-rows] input
+         accum []]
+    (if (nil? more-rows)
+      (concat accum first-row)
+      (recur (rotate more-rows) (concat accum first-row)))
+    ))
+</code></pre><p>Just turn that into a function and we are done.</p><pre><code class="klipse-cljs nohighlight">(defn spiral-print [input]
+  (loop [[first-row &amp; more-rows] input
+         accum []]
+    (if (nil? more-rows)
+      (concat accum first-row)
+      (recur (rotate more-rows) (concat accum first-row)))
+    ))
+</code></pre><pre><code class="klipse-cljs nohighlight">(spiral-print [[1 2 3]
+               [4 5 6]
+               [7 8 9]])
+
+</code></pre><p>Usually one needs to come up with space and time complexity in terms of big O. I'll leave that to you. You can find the code on my <a href="https://github.com/noitcudni/leetcode-clojure-solution/blob/master/src/leetcode_clojure_solution/54_spiral_matrix.clj">github repo</a>.</p>
 </div>
 
 <div id="post-tags">
     <b>Tags: </b>
     
-    <a href="/tags-output/chrome extension/">chrome extension</a>
-    
-    <a href="/tags-output/seo tools/">seo tools</a>
+    <a href="/tags-output/leetcode/">leetcode</a>
     
 </div>
 
 
     <div id="prev-next">
         
-        <a href="/posts-output/2018-12-01-workingpoint-ios-app/">&laquo; An iOS invoicing app built specifically for WorkingPoint</a>
         
-        
-        <a class="right" href="/posts-output/2018-01-13-reagent-d3-force-directed-graph/">Force-directed graph with D3js in Clojurescript &raquo;</a>
+        <a class="right" href="/posts-output/2020-02-17-chrome-webstore-rejection/">How my Chrome extension finally got approved again &raquo;</a>
         
     </div>
 
@@ -109,8 +140,8 @@ http://out.dated.2.com/?foo=baz
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_config = function () {
-            this.page.url = "https://noitcudni.github.io/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/";
-            this.page.identifier = "Chrome Extension: Bulk Google Webmaster Outdated Content Removal";
+            this.page.url = "https://noitcudni.github.io/posts-output/2020-04-21-leetcode-spiral-print-matrix/";
+            this.page.identifier = "Leetcode 54 - Spiral Matrix in Clojure";
         };
         (function() {
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -184,7 +215,13 @@ http://out.dated.2.com/?foo=baz
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="/js/highlight.pack.js" type="text/javascript"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
+ <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css">
+<script>
+window.klipse_settings = {
+  "selector" : ".klipse-cljs"
+};
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin/js/klipse_plugin.js"></script> 
 
 </body>
 </html>
