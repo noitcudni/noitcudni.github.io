@@ -12,11 +12,28 @@ https://noitcudni.github.io/
 Programming related stuff
 </description>
 <lastBuildDate>
-Tue, 21 Apr 2020 22:02:08 -0700
+Sun, 17 May 2020 00:33:47 -0700
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+https://noitcudni.github.io/posts-output/2020-05-17-bulk-google-translate-chrome-extension/
+</guid>
+<link>
+https://noitcudni.github.io/posts-output/2020-05-17-bulk-google-translate-chrome-extension/
+</link>
+<title>
+Bulk Google Translate Chrome Extension
+</title>
+<description>
+&lt;p&gt;While working on another project, I found myself needing to download a bunch of google translate audio clips. So, I decided to put the original project on pause for a brief moment to build the tool I need. Half way through I've decided I might as well grab the translated text. You can find the extension here: &lt;a href='https://github.com/noitcudni/bulk-google-translate'&gt;https://github.com/noitcudni/bulk-google-translate&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;In a nutshell, this extension translates one source language to multiple target languages in bulk. You will be given a chance to select the source and target languages in the extension popup. Simply submit your list of words in CSV format and let the extension do the rest. All the audio clip (source language only) will be downloaded into you default Chrome download folder. At the very end of the run, you can download the translation results in JSON format.&lt;/p&gt;&lt;p&gt;Once again, choose your source language. You can let google to auto detect. &lt;img src=&quot;../../img/bulk-google-translate/source-language.png&quot; alt=&quot;Select a source language&quot; /&gt;&lt;/p&gt;&lt;p&gt;Then, select one or more target languages to be translated. &lt;img src=&quot;../../img/bulk-google-translate/target-languages.png&quot; alt=&quot;Select target languages&quot; /&gt;&lt;/p&gt;&lt;p&gt;Lastly, submit your csv file with all the words you'd like to be translated. &lt;img src=&quot;../../img/bulk-google-translate/bulk-google-translate-csv-submit.png&quot; alt=&quot;Submit a csv file with the to-be-translated words/phrases&quot; /&gt;&lt;/p&gt;
+</description>
+<pubDate>
+Sun, 17 May 2020 00:00:00 -0700
+</pubDate>
+</item>
 <item>
 <guid>
 https://noitcudni.github.io/posts-output/2020-04-21-leetcode-spiral-print-matrix/
