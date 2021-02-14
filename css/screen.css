@@ -1,6 +1,5 @@
 h1, h2, h3, h4, h5, h6 {
-    font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
-    /* font-family: 'Alegreya'; */
+    font-family: 'Alegreya';
 }
 
 body {
@@ -25,63 +24,39 @@ body {
 }
 
 .navbar-default {
-    /* background-color: #428bca; */
+    background-color: #428bca;
     border: none;
-    font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
 }
 
 .navbar-default .navbar-brand {
-    /* color: #fff; */
-    /* font-family: 'Alegreya'; */
-    /* color: #428bca;  */
-    color: #da5e15;
-    font-family: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+    color: #fff;
+    font-family: 'Alegreya';
 }
 
 .navbar-default .navbar-brand:hover {
-    /* color: #fff; */
-    color: #da5e15;
-    text-decoration: underline;
+    color: #fff;
 }
 
 .navbar-default .navbar-nav li a {
-    /* color: #fff; */
-    color: #da5e15
-    /* color: #ffc100; */
+    color: #fff;
 }
 
 .navbar-default .navbar-nav li a:hover {
-    color: #da5e15;
-    text-decoration: underline;
-    /* color: #fff; */
-    /* background-color: #3d80ba; */
-    /* background-color: #ffc100; */
+    color: #fff;
+    background-color: #3d80ba;
 }
 
 .navbar-default .navbar-nav .active a {
-    /* color: #ff9a00; */
-    color: #ff7400;
-    font-weight: bold;
-    /* background-color: #f0f0f0; */
-
-
-    /* background-color: #3d80ba; */
-    /* background-color: #ff9a00 */
+    color: #fff;
+    background-color: #3d80ba;
 }
 
-/* .navbar-default .navbar-toggle:hover{ */
-.navbar-default .navbar-nav .active a:hover{
-    /* background-color: #3d80ba; */
-    /* color: #ff7400; */
-    color: #ff7400;
-    font-weight: bold;
-    text-decoration: underline;
-    /* color: #ff7400; */
+.navbar-default .navbar-toggle:hover{
+    background-color: #3d80ba;
 }
-
 
 .navbar-default .navbar-toggle .icon-bar {
-    /* background-color: #fff; */
+    background-color: #fff;
 }
 
 #sidebar {
@@ -105,6 +80,12 @@ footer {
     text-align: center;
     padding-top: 75px;
     padding-bottom: 30px;
+}
+
+blockquote footer {
+    text-align: left;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 #post-tags {
@@ -146,8 +127,7 @@ pre code {
 }
 
 code {
-    /* color: #428bca; */
-    color: 74162e;
+    color: #428bca;
 }
 
 pre, code, .hljs {
@@ -185,8 +165,4 @@ pre, code, .hljs {
         float:left;
         text-align: left;
     }
-}
-
-a {
-    color: #da5e15;
 }

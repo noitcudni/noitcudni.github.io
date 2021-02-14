@@ -3,32 +3,25 @@
 <head>
     <meta charset="utf-8"/>
     <title>(polymorphic-labs/blog): An iOS invoicing app built specifically for WorkingPoint</title>
-    <link rel="canonical" href="https://noitcudni.github.io/posts-output/2018-12-01-workingpoint-ios-app/">
+    
+<meta name="keywords" content="chrome webstore,mobile app,cljs,d3,chrome extension,reagent,seo tools,re-natal,leetcode,ios">
+
+<meta name="description" content="When it comes to accounting/bookkeeping software, in my opinion, WorkingPoint is the best bang for the buck. I have been using WorkingPoint since 2014 to keep track of my S Corp revenue, expenses, and to send my customers invoices. At the end of the year, I can generate a balance sheet and a cash flow statement with a click of a button and send those reports to my accountant. All that for a grand total of $99/year. I&#39;m pretty confident that you can&#39;t find another solution at that price point. OK, I suppose that you can track everything in a spreadsheet, but that&#39;s not my cup of tea.Unfortunately, its banking integration with my bank somehow stopped working about 2 years ago, which led to many frustrations. It caused me so much pain that I almost gave up on them entirely. Instead, I spent a weekend writing a Chrome extension to import expenses from my bank statement. That&#39;s a post for another day.">
+
+<meta property="og:description" content="When it comes to accounting/bookkeeping software, in my opinion, WorkingPoint is the best bang for the buck. I have been using WorkingPoint since 2014 to keep track of my S Corp revenue, expenses, and to send my customers invoices. At the end of the year, I can generate a balance sheet and a cash flow statement with a click of a button and send those reports to my accountant. All that for a grand total of $99/year. I&#39;m pretty confident that you can&#39;t find another solution at that price point. OK, I suppose that you can track everything in a spreadsheet, but that&#39;s not my cup of tea.Unfortunately, its banking integration with my bank somehow stopped working about 2 years ago, which led to many frustrations. It caused me so much pain that I almost gave up on them entirely. Instead, I spent a weekend writing a Chrome extension to import expenses from my bank statement. That&#39;s a post for another day.">
+
+<meta property="og:url" content="https://polymorphiclabs.io/posts-output/2018-12-01-workingpoint-ios-app/" />
+<meta property="og:title" content="An iOS invoicing app built specifically for WorkingPoint" />
+<meta property="og:type" content="article" />
+
+    <link rel="canonical" href="https://polymorphiclabs.io/posts-output/2018-12-01-workingpoint-ios-app/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
-          type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
+          type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/screen.css" rel="stylesheet" type="text/css" />
-
-
-    <!-- adsense -->
-    <script data-ad-client="ca-pub-6787212080283493" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-    <!-- Google Webmaster Tools -->
-    <meta name="google-site-verification" content="3V7F7oJ0oo0VLEkGxmhYxhDJ0m5n2wFvXJ1Cye_P-ag" />
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122697206-3"></script>
-    <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-
-     gtag('config', 'UA-122697206-3');
-    </script>
-
 </head>
 <body>
 
@@ -79,13 +72,13 @@
 </div>
 <div>
     
-    <p>When it comes to accounting/bookkeeping software, in my opinion, WorkingPoint is the best bang for the buck. I have been using WorkingPoint since 2014 to keep track of my S Corp revenue, expenses, and to send my customers invoices. At the end of the year, I can generate a balance sheet and a cash flow statement with a click of a button and send those reports to my accountant. All that for a grand total of $99/year. I'm pretty confident that you can't find another solution at that price point. OK, I suppose that you can track everything in a spreadsheet, but that's not my cup of tea.</p><p>Unfortunately, its banking integration with my bank somehow stopped working about 2 years ago, which led to many frustrations. It caused me so much pain that I almost gave up on them entirely. Instead, I spent a weekend writing a Chrome extension to import expenses from my bank statement. That's a post for another day.</p><p>Today I'll focus on another major flaw with the product: it does not have a mobile solution of any kind. There's no native app nor is their web solution optimized for mobile. So, I took the matter into my own hand again and wrote an iOS app specifically for WorkingPoint with <a href='https://github.com/drapanjanas/re-natal'>re-natal</a> (basically, react native but in Clojurescript). In layman's term, this will provide the user with a native app experience. After months of working it on the side plus another month of dealing with Apple's approval process, it's finally live. You can find it here: https://itunes.apple.com/us/app/invoice-puppy/id1438335818?ls=1&mt=8. The name of my app is Invoice Puppy. I figured why not have a cute animal as the face of my app.</p><p>Sorry, it doesn't do all the things that Workingpoint website does. My only goal was to be able to create invoices and quotes and to perform other peripheral functions related to invoicing, such as contact and item creation. Also, you can email your customer the invoice directly from the app. The following is several screenshots of the app.</p><p><img src="../../img/invoice-puppy/300x0w.png" alt="list of invoices" /> <img src="../../img/invoice-puppy/300x0w&#40;1&#41;.png" alt="list of customers" /></p><p><img src="../../img/invoice-puppy/300x0w&#40;2&#41;.png" alt="email invoice" /> <img src="../../img/invoice-puppy/300x0w&#40;3&#41;.png" alt="invoice creation" /></p><p>I've decided to sell the app for $19.99. I've done a bunch of testing, but I'm sure that there are still bugs. Should you run into any issues, please feel free to file an issue on <a href='https://github.com/noitcudni/invoice-puppy-workingpoint/issues'>here</a>. I'll address them in a timely manner.</p>
+    <p>When it comes to accounting/bookkeeping software, in my opinion, WorkingPoint is the best bang for the buck. I have been using WorkingPoint since 2014 to keep track of my S Corp revenue, expenses, and to send my customers invoices. At the end of the year, I can generate a balance sheet and a cash flow statement with a click of a button and send those reports to my accountant. All that for a grand total of $99/year. I'm pretty confident that you can't find another solution at that price point. OK, I suppose that you can track everything in a spreadsheet, but that's not my cup of tea.</p><p>Unfortunately, its banking integration with my bank somehow stopped working about 2 years ago, which led to many frustrations. It caused me so much pain that I almost gave up on them entirely. Instead, I spent a weekend writing a Chrome extension to import expenses from my bank statement. That's a post for another day.</p><p>Today I'll focus on another major flaw with the product: it does not have a mobile solution of any kind. There's no native app nor is their web solution optimized for mobile. So, I took the matter into my own hand again and wrote an iOS app specifically for WorkingPoint with <a href="https://github.com/drapanjanas/re-natal">re-natal</a> (basically, react native but in Clojurescript). In layman's term, this will provide the user with a native app experience. After months of working it on the side plus another month of dealing with Apple's approval process, it's finally live. You can find it here: https://itunes.apple.com/us/app/invoice-puppy/id1438335818?ls=1&amp;mt=8. The name of my app is Invoice Puppy. I figured why not have a cute animal as the face of my app.</p><p>Sorry, it doesn't do all the things that Workingpoint website does. My only goal was to be able to create invoices and quotes and to perform other peripheral functions related to invoicing, such as contact and item creation. Also, you can email your customer the invoice directly from the app. The following is several screenshots of the app.</p><p><img src="../../img/invoice-puppy/300x0w.png" alt="list of invoices" /><img src="../../img/invoice-puppy/300x0w(1).png" alt="list of customers" /></p><p><img src="../../img/invoice-puppy/300x0w(2).png" alt="email invoice" /><img src="../../img/invoice-puppy/300x0w(3).png" alt="invoice creation" /></p><p>I've decided to sell the app for $19.99. I've done a bunch of testing, but I'm sure that there are still bugs. Should you run into any issues, please feel free to file an issue on <a href="https://github.com/noitcudni/invoice-puppy-workingpoint/issues">here</a>. I'll address them in a timely manner.</p>
 </div>
 
 <div id="post-tags">
     <b>Tags: </b>
     
-    <a href="/tags-output/mobile app/">mobile app</a>
+    <a href="/tags-output/mobile%20app/">mobile app</a>
     
     <a href="/tags-output/cljs/">cljs</a>
     
@@ -109,7 +102,7 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_config = function () {
-            this.page.url = "https://noitcudni.github.io/posts-output/2018-12-01-workingpoint-ios-app/";
+            this.page.url = "https://polymorphiclabs.io/posts-output/2018-12-01-workingpoint-ios-app/";
             this.page.identifier = "An iOS invoicing app built specifically for WorkingPoint";
         };
         (function() {
@@ -130,6 +123,9 @@
             <div id="sidebar">
                 <h3>Links</h3>
                 <ul id="links">
+                    <li><a href="https://chrome.google.com/webstore/detail/webmaster-tools-bulk-url/pmnpibilljafelnghknefahibdnfeece">Bulk URL Removal Extension</a></li>
+                    <li><a href="https://chrome.google.com/webstore/detail/webmastertools-bulk-outda/nifcnomokilnniefahjbcelkepelpphl?hl=en-US">Bulk Outdated Content Removal Extension</a></li>
+
                     
                 </ul>
                 
@@ -151,19 +147,19 @@
                     <h3>Tags</h3>
                     <ul>
                         
-                        <li><a href="/tags-output/chrome webstore/">chrome webstore</a></li>
+                        <li><a href="/tags-output/chrome%20webstore/">chrome webstore</a></li>
                         
-                        <li><a href="/tags-output/mobile app/">mobile app</a></li>
+                        <li><a href="/tags-output/mobile%20app/">mobile app</a></li>
                         
                         <li><a href="/tags-output/cljs/">cljs</a></li>
                         
                         <li><a href="/tags-output/d3/">d3</a></li>
                         
-                        <li><a href="/tags-output/chrome extension/">chrome extension</a></li>
+                        <li><a href="/tags-output/chrome%20extension/">chrome extension</a></li>
                         
                         <li><a href="/tags-output/reagent/">reagent</a></li>
                         
-                        <li><a href="/tags-output/seo tools/">seo tools</a></li>
+                        <li><a href="/tags-output/seo%20tools/">seo tools</a></li>
                         
                         <li><a href="/tags-output/re-natal/">re-natal</a></li>
                         
@@ -177,12 +173,12 @@
             </div>
         </div>
     </div>
-    <footer>Copyright &copy; 2020 Lih Chen
+    <footer>Copyright &copy; 2021 Lih Chen
         <p style="text-align: center;">Powered by <a href="http://cryogenweb.org">Cryogen</a></p></footer>
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="/js/highlight.pack.js" type="text/javascript"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 

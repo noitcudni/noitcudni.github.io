@@ -3,32 +3,25 @@
 <head>
     <meta charset="utf-8"/>
     <title>(polymorphic-labs/blog): Force-directed graph with D3js in Clojurescript</title>
-    <link rel="canonical" href="https://noitcudni.github.io/posts-output/2018-01-13-reagent-d3-force-directed-graph/">
+    
+<meta name="keywords" content="chrome webstore,mobile app,cljs,d3,chrome extension,reagent,seo tools,re-natal,leetcode,ios">
+
+<meta name="description" content="Recently, I stumbled upon opensecrets.org where I could get a hold of raw data on US Senate and House campaign contributions. Full disclosure, I don&#39;t consider myself very political, nor do I know the interworkings of our political system, but I thought why not graph the contribution data in d3js.I have done a couple d3js projects in the past in Javascript, but I really don&#39;t want to code in Javascript if I can help it. After some googling, I found rid3, a clojurescript library on top of d3 and Reagent, and decided to give it a spin. I&#39;m going to assume that you already have a working knowledge of reagent and re-frame.">
+
+<meta property="og:description" content="Recently, I stumbled upon opensecrets.org where I could get a hold of raw data on US Senate and House campaign contributions. Full disclosure, I don&#39;t consider myself very political, nor do I know the interworkings of our political system, but I thought why not graph the contribution data in d3js.I have done a couple d3js projects in the past in Javascript, but I really don&#39;t want to code in Javascript if I can help it. After some googling, I found rid3, a clojurescript library on top of d3 and Reagent, and decided to give it a spin. I&#39;m going to assume that you already have a working knowledge of reagent and re-frame.">
+
+<meta property="og:url" content="https://polymorphiclabs.io/posts-output/2018-01-13-reagent-d3-force-directed-graph/" />
+<meta property="og:title" content="Force-directed graph with D3js in Clojurescript" />
+<meta property="og:type" content="article" />
+
+    <link rel="canonical" href="https://polymorphiclabs.io/posts-output/2018-01-13-reagent-d3-force-directed-graph/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
-          type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
+          type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/screen.css" rel="stylesheet" type="text/css" />
-
-
-    <!-- adsense -->
-    <script data-ad-client="ca-pub-6787212080283493" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-    <!-- Google Webmaster Tools -->
-    <meta name="google-site-verification" content="3V7F7oJ0oo0VLEkGxmhYxhDJ0m5n2wFvXJ1Cye_P-ag" />
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122697206-3"></script>
-    <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-
-     gtag('config', 'UA-122697206-3');
-    </script>
-
 </head>
 <body>
 
@@ -78,215 +71,215 @@
     <h2>Force-directed graph with D3js in Clojurescript</h2>
 </div>
 <div>
-    <ol class="content"><li><a href="#setup">Setup</a></li><li><a href="#test_data">Test data</a></li><li><a href="#empty_canvas">Empty Canvas</a></li><li><a href="#let&apos;s_draw_some_nodes_and_edges">Let's draw some nodes and edges</a></li><li><a href="#start_the_engine_d3.forcesimulation">Start the engine d3.forceSimulation</a></li><li><a href="#making_it_draggable">Making it draggable</a></li></ol>
-    <p>Recently, I stumbled upon opensecrets.org where I could get a hold of raw data on US Senate and House campaign contributions. Full disclosure, I don't consider myself very political, nor do I know the interworkings of our political system, but I thought why not graph the contribution data in d3js.</p><p>I have done a couple d3js projects in the past in Javascript, but I really don't want to code in Javascript if I can help it. After some googling, I found <a href='https://github.com/gadfly361/rid3'>rid3</a>, a clojurescript library on top of d3 and Reagent, and decided to give it a spin. I'm going to assume that you already have a working knowledge of reagent and re-frame.</p><h3 id="setup">Setup</h3><p>Add two additional dependencies to your project.clj. We're going to using re-frame for our state management.</p><pre><code class="clojure">&#40;defproject viz &quot;0.1.0-SNAPSHOT&quot;
-  :dependencies &#91;&#91;org.clojure/clojure &quot;1.8.0&quot;&#93;
-                 &#91;org.clojure/clojurescript &quot;1.9.908&quot;&#93;
-                 &#91;reagent &quot;0.7.0&quot;&#93;
-                 &#91;re-frame &quot;0.10.2&quot;&#93; ;; &lt;-- add this
-                 &#91;rid3 &quot;0.2.0&quot;&#93;&#93;  ;; &lt;-- add this
+    <ol class="toc"><li><a href="#setup">Setup</a></li><li><a href="#test-data">Test data</a></li><li><a href="#empty-canvas">Empty Canvas</a></li><li><a href="#lets-draw-some-nodes-and-edges">Let's draw some nodes and edges</a></li><li><a href="#start-the-engine-d3forcesimulation">Start the engine d3.forceSimulation</a></li><li><a href="#making-it-draggable">Making it draggable</a></li></ol>
+    <p>Recently, I stumbled upon opensecrets.org where I could get a hold of raw data on US Senate and House campaign contributions. Full disclosure, I don't consider myself very political, nor do I know the interworkings of our political system, but I thought why not graph the contribution data in d3js.</p><p>I have done a couple d3js projects in the past in Javascript, but I really don't want to code in Javascript if I can help it. After some googling, I found <a href="https://github.com/gadfly361/rid3">rid3</a>, a clojurescript library on top of d3 and Reagent, and decided to give it a spin. I'm going to assume that you already have a working knowledge of reagent and re-frame.</p><h3 id="setup">Setup</h3><p>Add two additional dependencies to your project.clj. We're going to using re-frame for our state management.</p><pre><code class="clojure">(defproject viz "0.1.0-SNAPSHOT"
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.9.908"]
+                 [reagent "0.7.0"]
+                 [re-frame "0.10.2"] ;; &lt;-- add this
+                 [rid3 "0.2.0"]]  ;; &lt;-- add this
                  ...
-                 &#41;
-</code></pre><h3 id="test&#95;data">Test data</h3><p>Apparently, there's a lot of data around campaign contributions. Instead of dealing with a large data set right off the bat while trying to get a d3 force-directed graph working in clojurescript, I decided it'd be wise to create a small data sample in order to iterate quickly.</p><pre><code class="clojure">;; in db.cljs
-&#40;def default-db
-  {:name &quot;re-frame name&quot;
+                 )
+</code></pre><h3 id="test-data">Test data</h3><p>Apparently, there's a lot of data around campaign contributions. Instead of dealing with a large data set right off the bat while trying to get a d3 force-directed graph working in clojurescript, I decided it'd be wise to create a small data sample in order to iterate quickly.</p><pre><code class="clojure">;; in db.cljs
+(def default-db
+  {:name "re-frame name"
    :test-data {:dataset
                {:nodes
-                &#91;{ :id &quot;mammal&quot; :group 0  :label &quot;Mammals&quot; :level 1 }
-                 { :id &quot;dog&quot;    :group 0  :label &quot;Dogs&quot;    :level 2 }
-                 { :id &quot;cat&quot;    :group 0  :label &quot;Cats&quot;    :level 2 }
-                 { :id &quot;fox&quot;    :group 0  :label &quot;Foxes&quot;   :level 2 }
-                 { :id &quot;elk&quot;    :group 0  :label &quot;Elk&quot;     :level 2 }
-                 { :id &quot;insect&quot; :group 1  :label &quot;Insects&quot; :level 1 }
-                 { :id &quot;ant&quot;    :group 1  :label &quot;Ants&quot;    :level 2 }
-                 { :id &quot;bee&quot;    :group 1  :label &quot;Bees&quot;    :level 2 }
-                 { :id &quot;fish&quot;   :group 2  :label &quot;Fish&quot;    :level 1 }
-                 { :id &quot;carp&quot;   :group 2  :label &quot;Carp&quot;    :level 2 }
-                 { :id &quot;pike&quot;   :group 2  :label &quot;Pikes&quot;   :level 2 }&#93;
+                [{ :id "mammal" :group 0  :label "Mammals" :level 1 }
+                 { :id "dog"    :group 0  :label "Dogs"    :level 2 }
+                 { :id "cat"    :group 0  :label "Cats"    :level 2 }
+                 { :id "fox"    :group 0  :label "Foxes"   :level 2 }
+                 { :id "elk"    :group 0  :label "Elk"     :level 2 }
+                 { :id "insect" :group 1  :label "Insects" :level 1 }
+                 { :id "ant"    :group 1  :label "Ants"    :level 2 }
+                 { :id "bee"    :group 1  :label "Bees"    :level 2 }
+                 { :id "fish"   :group 2  :label "Fish"    :level 1 }
+                 { :id "carp"   :group 2  :label "Carp"    :level 2 }
+                 { :id "pike"   :group 2  :label "Pikes"   :level 2 }]
                 :links
-                &#91;{ :target &quot;mammal&quot; :source &quot;dog&quot;  :strength 0.7 }
-                 { :target &quot;mammal&quot; :source &quot;cat&quot;  :strength 0.7 }
-                 { :target &quot;mammal&quot; :source &quot;fox&quot;  :strength 0.7 }
-                 { :target &quot;mammal&quot; :source &quot;elk&quot;  :strength 0.7 }
-                 { :target &quot;insect&quot; :source &quot;ant&quot;  :strength 0.7 }
-                 { :target &quot;insect&quot; :source &quot;bee&quot;  :strength 0.7 }
-                 { :target &quot;fish&quot;   :source &quot;carp&quot; :strength 0.7 }
-                 { :target &quot;fish&quot;   :source &quot;pike&quot; :strength 0.7 }
-                 { :target &quot;cat&quot;    :source &quot;elk&quot;  :strength 0.1 }
-                 { :target &quot;carp&quot;   :source &quot;ant&quot;  :strength 0.1 }
-                 { :target &quot;elk&quot;    :source &quot;bee&quot;  :strength 0.1 }
-                 { :target &quot;dog&quot;    :source &quot;cat&quot;  :strength 0.1 }
-                 { :target &quot;fox&quot;    :source &quot;ant&quot;  :strength 0.1 }
-                 { :target &quot;pike&quot;   :source &quot;dog&quot;  :strength 0.1 }
-                 &#93;}}}&#41;
-</code></pre><p>Now we'll need to subscribe to the data, so we have a way to get a hold of it. In <code>subs.cljs</code>, add a new subscription.</p><pre><code class="clojure">&#40;re-frame/reg-sub
+                [{ :target "mammal" :source "dog"  :strength 0.7 }
+                 { :target "mammal" :source "cat"  :strength 0.7 }
+                 { :target "mammal" :source "fox"  :strength 0.7 }
+                 { :target "mammal" :source "elk"  :strength 0.7 }
+                 { :target "insect" :source "ant"  :strength 0.7 }
+                 { :target "insect" :source "bee"  :strength 0.7 }
+                 { :target "fish"   :source "carp" :strength 0.7 }
+                 { :target "fish"   :source "pike" :strength 0.7 }
+                 { :target "cat"    :source "elk"  :strength 0.1 }
+                 { :target "carp"   :source "ant"  :strength 0.1 }
+                 { :target "elk"    :source "bee"  :strength 0.1 }
+                 { :target "dog"    :source "cat"  :strength 0.1 }
+                 { :target "fox"    :source "ant"  :strength 0.1 }
+                 { :target "pike"   :source "dog"  :strength 0.1 }
+                 ]}}})
+</code></pre><p>Now we'll need to subscribe to the data, so we have a way to get a hold of it. In <code>subs.cljs</code>, add a new subscription.</p><pre><code class="clojure">(re-frame/reg-sub
  ::data
- &#40;fn &#91;db&#93;
-   &#40;:test-data db&#41;&#41;&#41;
-</code></pre><h3 id="empty&#95;canvas">Empty Canvas</h3><p>In your views.cljs, create a <code>force-viz</code> reagent component and render it inside the <code>main-panel</code> function. Before rendering <code>force-viz</code>, we'll also need to subscribe to <code>&#91;::subs/data&#93;</code> and pass the result along.</p><pre><code class="clojure">&#40;defn force-viz &#91;ratom&#93;
-  &#91;rid3/viz
-    {:id &quot;force&quot;
+ (fn [db]
+   (:test-data db)))
+</code></pre><h3 id="empty-canvas">Empty Canvas</h3><p>In your views.cljs, create a <code>force-viz</code> reagent component and render it inside the <code>main-panel</code> function. Before rendering <code>force-viz</code>, we'll also need to subscribe to <code>[::subs/data]</code> and pass the result along.</p><pre><code class="clojure">(defn force-viz [ratom]
+  [rid3/viz
+    {:id "force"
      :ratom ratom
-     :svg {:did-mount &#40;fn &#91;node ratom&#93;
-                        &#40;-&gt; node
-                            &#40;.attr &quot;width&quot; 1000&#41;
-                            &#40;.attr &quot;height&quot; 1000&#41;
-                            &#40;.style &quot;background-color&quot; &quot;grey&quot;&#41;&#41;&#41;}
-    }&#93;&#41;
+     :svg {:did-mount (fn [node ratom]
+                        (-&gt; node
+                            (.attr "width" 1000)
+                            (.attr "height" 1000)
+                            (.style "background-color" "grey")))}
+    }])
 
-&#40;defn main-panel &#91;&#93;
-  &#40;fn &#91;&#93;
-    &#40;let &#91;data &#40;re-frame/subscribe &#91;::subs/data&#93;&#41;&#93;
-      &#91;force-viz data&#93;
-      &#41;&#41;&#41;
-</code></pre><p>This creates a big empty 1000 x 1000 canvas. Nothing too interesting at the moment. Let's make the width and height dynamically grow with the browser window. This is where <code>reagent</code> really shines. On window resize, we are going to set the new height and width via <code>re-frame</code>. If we have our <code>re-frame</code> dispatch calls set up properly, our previous <code>re-frame</code> subscription will automatically include the updated width and height dimensions.</p><pre><code class="clojure">&#40;re-frame/reg-event-fx
+(defn main-panel []
+  (fn []
+    (let [data (re-frame/subscribe [::subs/data])]
+      [force-viz data]
+      )))
+</code></pre><p>This creates a big empty 1000 x 1000 canvas. Nothing too interesting at the moment. Let's make the width and height dynamically grow with the browser window. This is where <code>reagent</code> really shines. On window resize, we are going to set the new height and width via <code>re-frame</code>. If we have our <code>re-frame</code> dispatch calls set up properly, our previous <code>re-frame</code> subscription will automatically include the updated width and height dimensions.</p><pre><code class="clojure">(re-frame/reg-event-fx
  :window-width
- &#40;fn &#91;{:keys &#91;db&#93;} &#91;&#95; width&#93;&#93;
-   {:db &#40;-&gt; db
-            &#40;assoc-in &#91;:test-data :width&#93; width&#41;&#41;}&#41;&#41;
+ (fn [{:keys [db]} [_ width]]
+   {:db (-&gt; db
+            (assoc-in [:test-data :width] width))}))
 
 ;; I'll leave out the :window-height dispatch.
-</code></pre><p>Inside our <code>init</code> function in <code>core.cljs</code>, invoke <code>re-frame</code> dispatch with the new dimensions.<pre><code class="clojure">&#40;set! js/window.onresize &#40;fn &#91;&#93;
-                             &#40;re-frame/dispatch &#91;:window-width js/window.innerWidth&#93;&#41;
-                             &#40;re-frame/dispatch &#91;:window-height js/window.innerHeight&#93;&#41;&#41;&#41;
-</code></pre></p><p>Don't forget to get rid of the hardcoded 1000x1000 pixels.</p><pre><code class="clojure">&#40;defn force-viz &#91;ratom&#93;
-  &#91;rid3/viz
-   {:id &quot;force&quot;
+</code></pre><p>Inside our <code>init</code> function in <code>core.cljs</code>, invoke <code>re-frame</code> dispatch with the new dimensions.</p><pre><code class="clojure">(set! js/window.onresize (fn []
+                             (re-frame/dispatch [:window-width js/window.innerWidth])
+                             (re-frame/dispatch [:window-height js/window.innerHeight])))
+</code></pre><p>Don't forget to get rid of the hardcoded 1000x1000 pixels.</p><pre><code class="clojure">(defn force-viz [ratom]
+  [rid3/viz
+   {:id "force"
     :ratom ratom
-    :svg {:did-mount &#40;fn &#91;node ratom&#93;
-                       &#40;.log js/console &quot;here? &quot; &#40;pr-str @ratom&#41;&#41;
-                       &#40;-&gt; node
-                           &#40;.attr &quot;width&quot; &#40;:width @ratom&#41;&#41;  &lt;-- change here
-                           &#40;.attr &quot;height&quot; &#40;:height @ratom&#41;&#41; &lt;-- change here
-                           &#40;.style &quot;background-color&quot; &quot;grey&quot;&#41;&#41;&#41;
+    :svg {:did-mount (fn [node ratom]
+                       (.log js/console "here? " (pr-str @ratom))
+                       (-&gt; node
+                           (.attr "width" (:width @ratom))  &lt;-- change here
+                           (.attr "height" (:height @ratom)) &lt;-- change here
+                           (.style "background-color" "grey")))
           }}
     :pieces
-    &#91;
+    [
     ... ;; &lt;--- more on this below
-    &#93;
-          &#93;&#41;
-</code></pre><p>Now whenever <code>ratom</code> changes, <code>force-viz</code> will be rendered automatically.</p><h3 id="let's&#95;draw&#95;some&#95;nodes&#95;and&#95;edges">Let's draw some nodes and edges</h3><p>Quick background. There are 4 types of <code>:pieces</code> in rid3: <code>elem</code>, <code>elem-with-data</code>, <code>container</code>, and <code>raw</code>. The order of execution is sequential from top to bottom in <code>:pieces</code>.</p><p>In most cases, bootstrapping and updating in d3 are done in the same manner. By default, rid3's <code>did-update</code> lifecycle does the same thing as <code>did-mount</code> unless you tell it otherwise. However, it's worth noting that you have to supply both <code>:did-mount</code> and <code>:did-update</code> for the <code>:raw</code> piece.</p><pre><code class="clojure">;; pieces
-&#91;{:kind :elem-with-data
-  :tag &quot;circle&quot;
-  :class &quot;node&quot;
-  :did-mount &#40;fn &#91;node ratom&#93;
-               &#40;let &#91;r &#40;-&gt; node
-                           &#40;.attr &quot;r&quot; &#40;fn &#91;d&#93;
-                                        5&#41;&#41;
-                           &#40;.attr &quot;fill&quot; &#40;fn &#91;n&#93;
-                                           &quot;red&quot;&#41;&#41;&#41;&#93;
-                 &#40;re-frame/dispatch-sync &#91;:set-var :node-elems r&#93;&#41;&#41;&#41;
-  :prepare-dataset &#40;fn &#91;ratom&#93;
-                     &#40;-&gt; @ratom
-                         &#40;get :dataset&#41;
-                         &#40;get :nodes&#41;
-                         clj-&gt;js&#41;&#41;}
+    ]
+          ])
+</code></pre><p>Now whenever <code>ratom</code> changes, <code>force-viz</code> will be rendered automatically.</p><h3 id="lets-draw-some-nodes-and-edges">Let's draw some nodes and edges</h3><p>Quick background. There are 4 types of <code>:pieces</code> in rid3: <code>elem</code>, <code>elem-with-data</code>, <code>container</code>, and <code>raw</code>. The order of execution is sequential from top to bottom in <code>:pieces</code>.</p><p>In most cases, bootstrapping and updating in d3 are done in the same manner. By default, rid3's <code>did-update</code> lifecycle does the same thing as <code>did-mount</code> unless you tell it otherwise. However, it's worth noting that you have to supply both <code>:did-mount</code> and <code>:did-update</code> for the <code>:raw</code> piece.</p><pre><code class="clojure">;; pieces
+[{:kind :elem-with-data
+  :tag "circle"
+  :class "node"
+  :did-mount (fn [node ratom]
+               (let [r (-&gt; node
+                           (.attr "r" (fn [d]
+                                        5))
+                           (.attr "fill" (fn [n]
+                                           "red")))]
+                 (re-frame/dispatch-sync [:set-var :node-elems r])))
+  :prepare-dataset (fn [ratom]
+                     (-&gt; @ratom
+                         (get :dataset)
+                         (get :nodes)
+                         clj-&gt;js))}
 
  {:kind :elem-with-data
-  :tag &quot;line&quot;
-  :class &quot;link&quot; ;;TODO customize link class
-  :did-mount &#40;fn &#91;node ratom&#93;
-               &#40;let &#91;r &#40;-&gt; node
-                           &#40;.attr &quot;stroke-width&quot; 1&#41;
-                           &#40;.attr &quot;stroke&quot; &quot;#E5E5E5&quot;&#41;
-                           &#41;&#93;
-                 &#40;re-frame/dispatch-sync &#91;:set-var :link-elems r&#93;&#41;&#41;&#41;
-  :prepare-dataset &#40;fn &#91;ratom&#93;
-                     &#40;-&gt; @ratom
-                         &#40;get :dataset&#41;
-                         &#40;get :links&#41;
-                         clj-&gt;js&#41;&#41;}
+  :tag "line"
+  :class "link" ;;TODO customize link class
+  :did-mount (fn [node ratom]
+               (let [r (-&gt; node
+                           (.attr "stroke-width" 1)
+                           (.attr "stroke" "#E5E5E5")
+                           )]
+                 (re-frame/dispatch-sync [:set-var :link-elems r])))
+  :prepare-dataset (fn [ratom]
+                     (-&gt; @ratom
+                         (get :dataset)
+                         (get :links)
+                         clj-&gt;js))}
 
- &#93;
-</code></pre><p>Instead of dealing with <code>enter&#40;&#41;</code>, <code>exit&#40;&#41;</code>, and binding the appropriate piece of data to a selected group of svg objects, most of the heavy lifting has already been done for us. We can turn our focus to how we'd like to represent the information. Since we have a nested structure in our data, we'll have to supply <code>:prepare-dataset</code>. Hopefully, you would agree that it's pretty trivial.</p><p>In Javascript, one could create a bunch of node and link elements, assign them to their respective variables, and refer to them later when necessary. Spoiler alert, we'll need to somehow pass our newly constructed nodes and links to <code>d3.forceSimulation</code> to kickstart the force directed graph. At first glance, there's no way of doing that with rid3. Don't despair. We can stash the node elements and the link elements via re-frame and get them back later. Hence, the <code>re-frame/dispatch-sync</code> calls. Note that we'll need to call <code>dispatch-sync</code> here and not <code>dispatch</code> since we want to make sure that both node and link elements are done storing before going forward.</p><p>The implementation of <code>set-var</code> dispatch is fairly straightforward. For the sake of brevity, you can either implement it on your own or find it in my git repo.  (TODO: link implementation here)</p><h3 id="start&#95;the&#95;engine&#95;d3.forcesimulation">Start the engine d3.forceSimulation</h3><p>If you've already jumped the gun and tried to see what we have so far in the browser, you were probably dispointed to see that all the points are located on the upper left hand corner of the screen. In order to see all the nodes and edges rendered at their appropriate locations, we'll need to pass the previously constructed nodes and link elements into <code>d3.forceSimulation</code>, and we'll achieve this as a <code>:raw</code> piece.</p><pre><code class="clojure">;; pieces
-&#91;
-;; :elem-with-data for nodes &#40;see the previous code snippet&#41;
+ ]
+</code></pre><p>Instead of dealing with <code>enter()</code>, <code>exit()</code>, and binding the appropriate piece of data to a selected group of svg objects, most of the heavy lifting has already been done for us. We can turn our focus to how we'd like to represent the information. Since we have a nested structure in our data, we'll have to supply <code>:prepare-dataset</code>. Hopefully, you would agree that it's pretty trivial.</p><p>In Javascript, one could create a bunch of node and link elements, assign them to their respective variables, and refer to them later when necessary. Spoiler alert, we'll need to somehow pass our newly constructed nodes and links to <code>d3.forceSimulation</code> to kickstart the force directed graph. At first glance, there's no way of doing that with rid3. Don't despair. We can stash the node elements and the link elements via re-frame and get them back later. Hence, the <code>re-frame/dispatch-sync</code> calls. Note that we'll need to call <code>dispatch-sync</code> here and not <code>dispatch</code> since we want to make sure that both node and link elements are done storing before going forward.</p><p>The implementation of <code>set-var</code> dispatch is fairly straightforward. For the sake of brevity, you can either implement it on your own or find it in my git repo.  (TODO: link implementation here)</p><h3 id="start-the-engine-d3forcesimulation">Start the engine d3.forceSimulation</h3><p>If you've already jumped the gun and tried to see what we have so far in the browser, you were probably dispointed to see that all the points are located on the upper left hand corner of the screen. In order to see all the nodes and edges rendered at their appropriate locations, we'll need to pass the previously constructed nodes and link elements into <code>d3.forceSimulation</code>, and we'll achieve this as a <code>:raw</code> piece.</p><pre><code class="clojure">;; pieces
+[
+;; :elem-with-data for nodes (see the previous code snippet)
 ...
-;; :elem-with-data for links &#40;see the previous code snippet&#41;
+;; :elem-with-data for links (see the previous code snippet)
 ...
 {:kind :raw
  :did-mount sim-did-update
  :did-update sim-did-update
-}&#93;
-</code></pre><pre><code class="clojure">&#40;defn sim-did-update &#91;ratom&#93;
-  &#40;let &#91;sim &#40;-&gt; &#40;js/d3.forceSimulation&#41;
-                &#40;.force &quot;link&quot; &#40;.id &#40;-&gt; js/d3 .forceLink&#41; &#40;fn &#91;d&#93; &#40;.-id d&#41;&#41;&#41;&#41;
-                &#40;.force &quot;charge&quot; &#40;js/d3.forceManyBody&#41;&#41;
-                &#40;.force &quot;center&quot; &#40;js/d3.forceCenter &#40;/ &#40;:width @ratom&#41; 2&#41;
-                                                    &#40;/ &#40;:height @ratom&#41; 2&#41;&#41;&#41;&#41;
-        node-dataset &#40;clj-&gt;js &#40;-&gt; @ratom
-                                  &#40;get :dataset&#41;
-                                  &#40;get :nodes&#41;&#41;&#41;
-        link-dataset &#40;clj-&gt;js &#40;-&gt; @ratom
-                                  &#40;get :dataset&#41;
-                                  &#40;get :links&#41;&#41;&#41;
-        node-elems @&#40;re-frame/subscribe &#91;:get-var :node-elems&#93;&#41;
-        link-elems @&#40;re-frame/subscribe &#91;:get-var :link-elems&#93;&#41;
+}]
+</code></pre><pre><code class="clojure">(defn sim-did-update [ratom]
+  (let [sim (-&gt; (js/d3.forceSimulation)
+                (.force "link" (.id (-&gt; js/d3 .forceLink) (fn [d] (.-id d))))
+                (.force "charge" (js/d3.forceManyBody))
+                (.force "center" (js/d3.forceCenter (/ (:width @ratom) 2)
+                                                    (/ (:height @ratom) 2))))
+        node-dataset (clj-&gt;js (-&gt; @ratom
+                                  (get :dataset)
+                                  (get :nodes)))
+        link-dataset (clj-&gt;js (-&gt; @ratom
+                                  (get :dataset)
+                                  (get :links)))
+        node-elems @(re-frame/subscribe [:get-var :node-elems])
+        link-elems @(re-frame/subscribe [:get-var :link-elems])
 
-        tick-handler &#40;fn &#91;&#93;
-                       &#40;-&gt; node-elems
-                           &#40;.attr &quot;cx&quot; &#40;fn &#91;&#95; idx&#93;
-                                         &#40;.-x &#40;get node-dataset idx&#41;&#41;&#41;&#41;
-                           &#40;.attr &quot;cy&quot; &#40;fn &#91;&#95; idx&#93;
-                                         &#40;.-y &#40;get node-dataset idx&#41;&#41;&#41;&#41;&#41;
+        tick-handler (fn []
+                       (-&gt; node-elems
+                           (.attr "cx" (fn [_ idx]
+                                         (.-x (get node-dataset idx))))
+                           (.attr "cy" (fn [_ idx]
+                                         (.-y (get node-dataset idx)))))
 
-                       &#40;-&gt; link-elems
-                           &#40;.attr &quot;x1&quot; &#40;fn &#91;&#95; idx&#93;
-                                         &#40;-&gt; &#40;get link-dataset idx&#41;
-                                             .-source .-x&#41;&#41;&#41;
-                           &#40;.attr &quot;y1&quot; &#40;fn &#91;&#95; idx&#93;
-                                         &#40;-&gt; &#40;get link-dataset idx&#41;
-                                             .-source .-y&#41;&#41;&#41;
-                           &#40;.attr &quot;x2&quot; &#40;fn &#91;&#95; idx&#93;
-                                         &#40;-&gt; &#40;get link-dataset idx&#41;
-                                             .-target .-x&#41;&#41;&#41;
-                           &#40;.attr &quot;y2&quot; &#40;fn &#91;&#95; idx&#93;
-                                         &#40;-&gt; &#40;get link-dataset idx&#41;
-                                             .-target .-y&#41;&#41;&#41;
-                           &#41;&#41;
-        &#93;
+                       (-&gt; link-elems
+                           (.attr "x1" (fn [_ idx]
+                                         (-&gt; (get link-dataset idx)
+                                             .-source .-x)))
+                           (.attr "y1" (fn [_ idx]
+                                         (-&gt; (get link-dataset idx)
+                                             .-source .-y)))
+                           (.attr "x2" (fn [_ idx]
+                                         (-&gt; (get link-dataset idx)
+                                             .-target .-x)))
+                           (.attr "y2" (fn [_ idx]
+                                         (-&gt; (get link-dataset idx)
+                                             .-target .-y)))
+                           ))
+        ]
     ;; Add notes to simulation
-    &#40;-&gt; sim
-        &#40;.nodes node-dataset&#41;
-        &#40;.on &quot;tick&quot; tick-handler&#41;&#41;
+    (-&gt; sim
+        (.nodes node-dataset)
+        (.on "tick" tick-handler))
 
     ;; Add link force to simulation
-    &#40;-&gt; sim
-        &#40;.force &quot;link&quot;&#41;
-        &#40;.links link-dataset&#41;&#41;
-    &#41;&#41;
-</code></pre><p>In the beginning of the <code>sim-did-update</code> function, we create a <code>forceSimulation</code> instance. To really get the simulation started, we'll need to add the link force and the nodes to the <code>forceSimulation</code> instance and update the new positions for the node and link elements on every tick.</p><p>As alluded to in the earlier section, we'll retrieve the previously created node and link elements from <code>reframe/subscribe</code>. Once again the <code>:get-var</code> subscription should be fairly straightforward to implement. As always, you can take a look the actual code in github.</p><p>One thing that I'd like to point out here is that the new coordinates will get assigned to the <code>ratom</code>, namely <code>&#40;-&gt; @ratom &#40;get :dataset&#41; &#40;get :nodes&#41;&#41;</code> and  <code>&#40;-&gt; @raom &#40;get :dataset&#41; &#40;get :links&#41;&#41;</code> by the d3 simulation engine. Both <code>node-dataset</code> and <code>link-dataset</code> must be converted to javascript objects or it won't work.</p><p><img src="../../img/d3-force-directed-1.png" alt="d3 force directed graph in cljs" /></p><p>Voila!</p><h3 id="making&#95;it&#95;draggable">Making it draggable</h3><p>D3 itself already provides a nice API for drag and drop. We'll need to invoke D3's drag api with our <code>node-elements</code>.<pre><code class="clojure">&#40;-&gt; node
-  &#40;.attr &quot;r&quot; &#40;fn &#91;d&#93;
-               5&#41;&#41;
-  &#40;.attr &quot;fill&quot; &#40;fn &#91;n&#93;
-                  &quot;red&quot;&#41;&#41;
-  &#40;.call &#40;-&gt; js/d3                        ;; &lt;------ add this block of code
-             &#40;.drag&#41;
-             &#40;.on &quot;start&quot; drag-started&#41;
-             &#40;.on &quot;drag&quot; dragged&#41;
-             &#40;.on &quot;end&quot; drag-ended&#41;&#41;&#41;&#41;
-</code></pre></p><p>Now we'll need to define <code>drag-started</code>, <code>dragged</code>, and <code>drag-ended</code>.</p><pre><code class="clojure">&#40;defn drag-started &#91;d idx&#93;
-  &#40;let &#91;sim @&#40;re-frame/subscribe &#91;:get-var :sim&#93;&#41;
-        d &#40;-&gt; sim .nodes &#40;get idx&#41;&#41;&#93;
-    &#40;when &#40;= 0 &#40;-&gt; js/d3 .-event .-active&#41;&#41;
-      &#40;-&gt; sim &#40;.alphaTarget 0.3&#41; &#40;.restart&#41;&#41;&#41;
-    &#40;set! &#40;.-fx d&#41; &#40;.-x d&#41;&#41;
-    &#40;set! &#40;.-fy d&#41; &#40;.-y d&#41;&#41;&#41;&#41;
+    (-&gt; sim
+        (.force "link")
+        (.links link-dataset))
+    ))
+</code></pre><p>In the beginning of the <code>sim-did-update</code> function, we create a <code>forceSimulation</code> instance. To really get the simulation started, we'll need to add the link force and the nodes to the <code>forceSimulation</code> instance and update the new positions for the node and link elements on every tick.</p><p>As alluded to in the earlier section, we'll retrieve the previously created node and link elements from <code>reframe/subscribe</code>. Once again the <code>:get-var</code> subscription should be fairly straightforward to implement. As always, you can take a look the actual code in github.</p><p>One thing that I'd like to point out here is that the new coordinates will get assigned to the <code>ratom</code>, namely <code>(-&gt; @ratom (get :dataset) (get :nodes))</code> and  <code>(-&gt; @raom (get :dataset) (get :links))</code> by the d3 simulation engine. Both <code>node-dataset</code> and <code>link-dataset</code> must be converted to javascript objects or it won't work.</p><p><img src="../../img/d3-force-directed-1.png" alt="d3 force directed graph in cljs" /></p><p>Voila!</p><h3 id="making-it-draggable">Making it draggable</h3><p>D3 itself already provides a nice API for drag and drop. We'll need to invoke D3's drag api with our <code>node-elements</code>.</p><pre><code class="clojure">(-&gt; node
+  (.attr "r" (fn [d]
+               5))
+  (.attr "fill" (fn [n]
+                  "red"))
+  (.call (-&gt; js/d3                        ;; &lt;------ add this block of code
+             (.drag)
+             (.on "start" drag-started)
+             (.on "drag" dragged)
+             (.on "end" drag-ended))))
+</code></pre><p>Now we'll need to define <code>drag-started</code>, <code>dragged</code>, and <code>drag-ended</code>.</p><pre><code class="clojure">(defn drag-started [d idx]
+  (let [sim @(re-frame/subscribe [:get-var :sim])
+        d (-&gt; sim .nodes (get idx))]
+    (when (= 0 (-&gt; js/d3 .-event .-active))
+      (-&gt; sim (.alphaTarget 0.3) (.restart)))
+    (set! (.-fx d) (.-x d))
+    (set! (.-fy d) (.-y d))))
 
 
-&#40;defn dragged &#91;&#95; idx&#93;
-  &#40;let &#91;sim @&#40;re-frame/subscribe &#91;:get-var :sim&#93;&#41;
-        d &#40;-&gt; sim .nodes &#40;get idx&#41;&#41;&#93;
-    &#40;set! &#40;.-fx d&#41; &#40;.-x js/d3.event&#41;&#41;
-    &#40;set! &#40;.-fy d&#41; &#40;.-y js/d3.event&#41;&#41;&#41;&#41;
+(defn dragged [_ idx]
+  (let [sim @(re-frame/subscribe [:get-var :sim])
+        d (-&gt; sim .nodes (get idx))]
+    (set! (.-fx d) (.-x js/d3.event))
+    (set! (.-fy d) (.-y js/d3.event))))
 
-&#40;defn drag-ended &#91;&#95; idx&#93;
-  &#40;let &#91;sim @&#40;re-frame/subscribe &#91;:get-var :sim&#93;&#41;
-        d &#40;-&gt; sim .nodes &#40;get idx&#41;&#41;&#93;
-    &#40;when &#40;= 0 &#40;-&gt; js/d3 .-event .-active&#41;&#41;
-      &#40;-&gt; sim &#40;.alphaTarget 0&#41;&#41;&#41;
-    &#40;set! &#40;.-fx d&#41; nil&#41;
-    &#40;set! &#40;.-fy d&#41; nil&#41;&#41;&#41;
+(defn drag-ended [_ idx]
+  (let [sim @(re-frame/subscribe [:get-var :sim])
+        d (-&gt; sim .nodes (get idx))]
+    (when (= 0 (-&gt; js/d3 .-event .-active))
+      (-&gt; sim (.alphaTarget 0)))
+    (set! (.-fx d) nil)
+    (set! (.-fy d) nil)))
 </code></pre>
 </div>
 
@@ -313,7 +306,7 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
         var disqus_config = function () {
-            this.page.url = "https://noitcudni.github.io/posts-output/2018-01-13-reagent-d3-force-directed-graph/";
+            this.page.url = "https://polymorphiclabs.io/posts-output/2018-01-13-reagent-d3-force-directed-graph/";
             this.page.identifier = "Force-directed graph with D3js in Clojurescript";
         };
         (function() {
@@ -334,6 +327,9 @@
             <div id="sidebar">
                 <h3>Links</h3>
                 <ul id="links">
+                    <li><a href="https://chrome.google.com/webstore/detail/webmaster-tools-bulk-url/pmnpibilljafelnghknefahibdnfeece">Bulk URL Removal Extension</a></li>
+                    <li><a href="https://chrome.google.com/webstore/detail/webmastertools-bulk-outda/nifcnomokilnniefahjbcelkepelpphl?hl=en-US">Bulk Outdated Content Removal Extension</a></li>
+
                     
                 </ul>
                 
@@ -355,19 +351,19 @@
                     <h3>Tags</h3>
                     <ul>
                         
-                        <li><a href="/tags-output/chrome webstore/">chrome webstore</a></li>
+                        <li><a href="/tags-output/chrome%20webstore/">chrome webstore</a></li>
                         
-                        <li><a href="/tags-output/mobile app/">mobile app</a></li>
+                        <li><a href="/tags-output/mobile%20app/">mobile app</a></li>
                         
                         <li><a href="/tags-output/cljs/">cljs</a></li>
                         
                         <li><a href="/tags-output/d3/">d3</a></li>
                         
-                        <li><a href="/tags-output/chrome extension/">chrome extension</a></li>
+                        <li><a href="/tags-output/chrome%20extension/">chrome extension</a></li>
                         
                         <li><a href="/tags-output/reagent/">reagent</a></li>
                         
-                        <li><a href="/tags-output/seo tools/">seo tools</a></li>
+                        <li><a href="/tags-output/seo%20tools/">seo tools</a></li>
                         
                         <li><a href="/tags-output/re-natal/">re-natal</a></li>
                         
@@ -381,12 +377,12 @@
             </div>
         </div>
     </div>
-    <footer>Copyright &copy; 2020 Lih Chen
+    <footer>Copyright &copy; 2021 Lih Chen
         <p style="text-align: center;">Powered by <a href="http://cryogenweb.org">Cryogen</a></p></footer>
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="/js/highlight.pack.js" type="text/javascript"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 

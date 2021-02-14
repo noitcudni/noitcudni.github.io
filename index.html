@@ -3,32 +3,18 @@
 <head>
     <meta charset="utf-8"/>
     <title>(polymorphic-labs/blog)</title>
-    <link rel="canonical" href="https://noitcudni.github.io">
+    
+    <meta name="description" content="Programming related stuff">
+    <meta name="keywords" content="">
+    
+    <link rel="canonical" href="https://polymorphiclabs.io/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
-          type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
+          type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
     <link href="/css/screen.css" rel="stylesheet" type="text/css" />
-
-
-    <!-- adsense -->
-    <script data-ad-client="ca-pub-6787212080283493" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-    <!-- Google Webmaster Tools -->
-    <meta name="google-site-verification" content="3V7F7oJ0oo0VLEkGxmhYxhDJ0m5n2wFvXJ1Cye_P-ag" />
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122697206-3"></script>
-    <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-
-     gtag('config', 'UA-122697206-3');
-    </script>
-
 </head>
 <body>
 
@@ -70,70 +56,39 @@
             <div id="content">
                 
 <div id="post">
-    
     <div class="post-header">
-        <h2>Bulk Google Translate Chrome Extension</h2>
-        <div id="post-meta">
-            
-            <div class="date">May 17, 2020</div>
-        </div>
+    <div id="post-meta" class="row">
+        <div class="col-lg-6">May 17, 2020</div>
+        
     </div>
-    <p>While working on another project, I found myself needing to download a bunch of google translate audio clips. So, I decided to put the original project on pause for a brief moment to build the tool I need. Half way through I've decided I might as well grab the translated text. You can find the extension here: <a href="https://github.com/noitcudni/bulk-google-translate">https://github.com/noitcudni/bulk-google-translate</a>.</p><p>In a nutshell, this extension translates one source language to multiple target languages in bulk. You will be given a chance to select the source and target languages in the extension popup. Simply submit your list of words in CSV format and let the extension do the rest. All the audio clip (source language only) will be downloaded into you default Chrome download folder. At the very end of the run, you can download the translation results in JSON format.</p>
-    <a href="/posts-output/2020-05-17-bulk-google-translate-chrome-extension/">Continue reading &#8594;</a>
-    <hr>
+    <h2>Bulk Google Translate Chrome Extension</h2>
+</div>
+<div>
     
-    <div class="post-header">
-        <h2>Leetcode 54 - Spiral Matrix in Clojure</h2>
-        <div id="post-meta">
-            
-            <div class="date">April 21, 2020</div>
-        </div>
-    </div>
-    <p>Due to the entrenched interview process across the tech industry, every now and then I find myself needing to brush off my data structure/algorithm cob web prior to braving through another round of job interviews. Regardless of how many years of experience one has and ones domain knowledge, I believe that being at least familiar with the type of technical questions that might be presented during an interview is absolutely crucial.</p><p>On the other hand, I hate grinding through leetcode problems. If I have to do it, I might as well do it in a language I love. Some people out there may raise some concerns around using a non-mainstream language during an interview. I can attest that I did most of mine in clojure. Not only no one raised any objections, most were quite intrigued.</p>
-    <a href="/posts-output/2020-04-21-leetcode-spiral-print-matrix/">Continue reading &#8594;</a>
-    <hr>
+    <p>While working on another project, I found myself needing to download a bunch of google translate audio clips. So, I decided to put the original project on pause for a brief moment to build the tool I need. Half way through I've decided I might as well grab the translated text. You can find the extension here: <a href="https://github.com/noitcudni/bulk-google-translate">https://github.com/noitcudni/bulk-google-translate</a>.</p><p>In a nutshell, this extension translates one source language to multiple target languages in bulk. You will be given a chance to select the source and target languages in the extension popup. Simply submit your list of words in CSV format and let the extension do the rest. All the audio clip (source language only) will be downloaded into you default Chrome download folder. At the very end of the run, you can download the translation results in JSON format.</p><p>Once again, choose your source language. You can let google to auto detect.
+<img src="../../img/bulk-google-translate/source-language.png" alt="Select a source language" /></p><p>Then, select one or more target languages to be translated.
+<img src="../../img/bulk-google-translate/target-languages.png" alt="Select target languages" /></p><p>Lastly, submit your csv file with all the words you'd like to be translated.
+<img src="../../img/bulk-google-translate/bulk-google-translate-csv-submit.png" alt="Submit a csv file with the to-be-translated words/phrases" /></p>
+</div>
+
+<div id="post-tags">
+    <b>Tags: </b>
     
-    <div class="post-header">
-        <h2>How my Chrome extension finally got approved again</h2>
-        <div id="post-meta">
-            
-            <div class="date">February 17, 2020</div>
-        </div>
-    </div>
-    <p>My little Chrome <a href="https://chrome.google.com/webstore/detail/webmaster-tools-bulk-url/pmnpibilljafelnghknefahibdnfeece">extension</a> has been on the Chrome Web Store since March 2018. I've never had any issues getting it approved until some time in January 2020.</p><p>I had to make significant improvements and bug fixes, so I was eager to release it. Typically, the turn around time was about 30 minutes to 24 hours. I pressed the publish button, expecting a usual quick turnaround, but this time I waited and waited. Finally, after 2.5 weeks, they sent me a rejection email stating that I needed to "narrow" the list of permissions my extension was asking the users. Fair enough. It did indeed have a few permissions that were no longer needed. I promptly made the corrections and resubmit.</p>
-    <a href="/posts-output/2020-02-17-chrome-webstore-rejection/">Continue reading &#8594;</a>
-    <hr>
+    <a href="/tags-output/chrome%20extension/">chrome extension</a>
     
-    <div class="post-header">
-        <h2>An iOS invoicing app built specifically for WorkingPoint</h2>
-        <div id="post-meta">
-            
-            <div class="date">December 1, 2018</div>
-        </div>
-    </div>
-    <p>When it comes to accounting/bookkeeping software, in my opinion, WorkingPoint is the best bang for the buck. I have been using WorkingPoint since 2014 to keep track of my S Corp revenue, expenses, and to send my customers invoices. At the end of the year, I can generate a balance sheet and a cash flow statement with a click of a button and send those reports to my accountant. All that for a grand total of $99/year. I'm pretty confident that you can't find another solution at that price point. OK, I suppose that you can track everything in a spreadsheet, but that's not my cup of tea.</p><p>Unfortunately, its banking integration with my bank somehow stopped working about 2 years ago, which led to many frustrations. It caused me so much pain that I almost gave up on them entirely. Instead, I spent a weekend writing a Chrome extension to import expenses from my bank statement. That's a post for another day.</p>
-    <a href="/posts-output/2018-12-01-workingpoint-ios-app/">Continue reading &#8594;</a>
-    <hr>
+</div>
+
+
     
-    <div class="post-header">
-        <h2>Chrome Extension: Bulk Google Webmaster Outdated Content Removal</h2>
-        <div id="post-meta">
-            
-            <div class="date">October 22, 2018</div>
-        </div>
+    <div id="comments">
+        <a href="/posts-output/2020-05-17-bulk-google-translate-chrome-extension/#disqus_thread">View Comments</a>
     </div>
-    <p>My little <a href="https://github.com/noitcudni/google-webmaster-tools-bulk-url-removal">Google Webmaster Tool Bulk URL Removal chrome extension</a> has gained quite a bit of usage. Several of those users have brought to my attention that Google Webmaster Tools also provides a way to remove outdated content, but it has a similar shortcoming: you can only remove outdated URLs one at a time. Recently, after wrapping up another side project, I decided to take a quick stab at this. You can find my extension here: <a href="https://github.com/noitcudni/google-webmaster-tools-bulk-outdated-content-removal">https://github.com/noitcudni/google-webmaster-tools-bulk-outdated-content-removal</a>.</p><ul><li>Download the zip from github<img src="//img/github-download-zip.png" alt="Download the zip file from github" /></li><li>Unzip it somewhere.</li><li>Go to <code>chrome://extensions/</code> inside your chrome browser and turn on developer mode.</li><li>Click on <code>Load unpacked extension</code> and load the extension.</li><li>Create a CSV file with the outdated URLs. For example:<pre><code>http://out.dated.1.com/?foo=bar
-http://out.dated.1.com/?foo=baz
-http://out.dated.2.com/?foo=baz
-</code></pre></li></ul>
-    <a href="/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/">Continue reading &#8594;</a>
-    <hr>
     
 
     <div id="prev-next">
         
         
-        <a class="right" href="/p/2/">Next &raquo;</a>
+        <a class="right" href="/posts-output/2020-04-21-leetcode-spiral-print-matrix/">Leetcode 54 - Spiral Matrix in Clojure &raquo;</a>
         
     </div>
 </div>
@@ -145,6 +100,9 @@ http://out.dated.2.com/?foo=baz
             <div id="sidebar">
                 <h3>Links</h3>
                 <ul id="links">
+                    <li><a href="https://chrome.google.com/webstore/detail/webmaster-tools-bulk-url/pmnpibilljafelnghknefahibdnfeece">Bulk URL Removal Extension</a></li>
+                    <li><a href="https://chrome.google.com/webstore/detail/webmastertools-bulk-outda/nifcnomokilnniefahjbcelkepelpphl?hl=en-US">Bulk Outdated Content Removal Extension</a></li>
+
                     
                 </ul>
                 
@@ -166,19 +124,19 @@ http://out.dated.2.com/?foo=baz
                     <h3>Tags</h3>
                     <ul>
                         
-                        <li><a href="/tags-output/chrome webstore/">chrome webstore</a></li>
+                        <li><a href="/tags-output/chrome%20webstore/">chrome webstore</a></li>
                         
-                        <li><a href="/tags-output/mobile app/">mobile app</a></li>
+                        <li><a href="/tags-output/mobile%20app/">mobile app</a></li>
                         
                         <li><a href="/tags-output/cljs/">cljs</a></li>
                         
                         <li><a href="/tags-output/d3/">d3</a></li>
                         
-                        <li><a href="/tags-output/chrome extension/">chrome extension</a></li>
+                        <li><a href="/tags-output/chrome%20extension/">chrome extension</a></li>
                         
                         <li><a href="/tags-output/reagent/">reagent</a></li>
                         
-                        <li><a href="/tags-output/seo tools/">seo tools</a></li>
+                        <li><a href="/tags-output/seo%20tools/">seo tools</a></li>
                         
                         <li><a href="/tags-output/re-natal/">re-natal</a></li>
                         
@@ -192,12 +150,12 @@ http://out.dated.2.com/?foo=baz
             </div>
         </div>
     </div>
-    <footer>Copyright &copy; 2020 Lih Chen
+    <footer>Copyright &copy; 2021 Lih Chen
         <p style="text-align: center;">Powered by <a href="http://cryogenweb.org">Cryogen</a></p></footer>
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="/js/highlight.pack.js" type="text/javascript"></script>
+<script src="/js/highlight.pack.js" type="application/javascript"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 
