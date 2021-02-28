@@ -96,7 +96,7 @@ json.articles=[]
 json.articles[0]={}
 json.articles[0].title="Discoverable Json Chrome Extension"
 json.articles[0].date="2021-02-14"
-</code></pre><p>Once you have installed the extension, it will provide you with the flattened JSON on the right pane. If you uncheck the <code>Preserved?</code> checkbox, it will update in real-time as you manipulate our JSON (more about that in the next section). Otherwise, it will highlight the matching text.</p><p><img src="img/dj-right-pane.png" alt="Right Pane" /></p><h2 id="json-manipulations">JSON Manipulations</h2><p>The extension provides you with the following 3 operations.</p><ol><li>Filter - You can narrow down your search by start typing in the text box. Be sure that the <code>filter</code> radio button has been selected. It accepts regular expressions as well.</li><li>Exclude - Basically, it's the opposite of <code>filter</code>. It removes the matching text.</li><li>Find and Replace - Once you select the <code>find and replace</code> radio button, an additional text box will show up.</li></ol><p><img src="img/dj-control-panel.png" alt="Control Panel" /></p><h3 id="save-steps">Save steps</h3><p>You can save your intermediate steps and chain them together to produce the final output.</p><h2 id="back-to-json">Back to JSON</h2><p>The resulting JSON document will be reconstructed on the left from your modified javascript expressions.</p><h2 id="more-advanced-example">More Advanced Example</h2><p>Let's try something a bit more interesting. Let's push both the nested "title" and "date" attributes one level up and remove the articles attribute altogether.
+</code></pre><p>Once you have installed the extension, it will provide you with the flattened JSON on the right pane. If you uncheck the <code>Preserved?</code> checkbox, it will update in real-time as you manipulate our JSON (more about that in the next section). Otherwise, it will highlight the matching text.</p><p><img src="../../img/dj-right-pane.png" alt="Right Pane" /></p><h2 id="json-manipulations">JSON Manipulations</h2><p>The extension provides you with the following 3 operations.</p><ol><li>Filter - You can narrow down your search by start typing in the text box. Be sure that the <code>filter</code> radio button has been selected. It accepts regular expressions as well.</li><li>Exclude - Basically, it's the opposite of <code>filter</code>. It removes the matching text.</li><li>Find and Replace - Once you select the <code>find and replace</code> radio button, an additional text box will show up.</li></ol><p><img src="../../img/dj-control-panel.png" alt="Control Panel" /></p><h3 id="save-steps">Save steps</h3><p>You can save your intermediate steps and chain them together to produce the final output.</p><h2 id="back-to-json">Back to JSON</h2><p>The resulting JSON document will be reconstructed on the left from your modified javascript expressions.</p><h2 id="more-advanced-example">More Advanced Example</h2><p>Let's try something a bit more interesting. Let's push both the nested "title" and "date" attributes one level up and remove the articles attribute altogether.
 <img src="img/dj-find-replace-1.png" alt="" />
 First we need to replace <code>articles\[0\]</code> with <code>title</code>. As shown in the screenshot, the extension helpfully highlights and crosses out the string that's about to be replaced. It also highlights the new replacement string. Do the same thing for <code>date</code>.</p><p><img src="img/dj-find-replace-3.png" alt="" />
 Save the steps. As you can see on the left panel, both <code>title</code> and <code>date</code> are now one level up.</p><p><img src="img/dj-find-replace-4.png" alt="" />
@@ -112,6 +112,8 @@ Lastly, we just need to do a little clean-up by excluding (removing) all javascr
 
 
     <div id="prev-next">
+        
+        <a href="/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/">&laquo; Convert JSON to CSV with Ease</a>
         
         
         <a class="right" href="/posts-output/2020-05-17-bulk-google-translate-chrome-extension/">Bulk Google Translate Chrome Extension &raquo;</a>
@@ -153,11 +155,11 @@ Lastly, we just need to do a little clean-up by excluding (removing) all javascr
                     <h3>Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/">Convert JSON to CSV with Ease</a></li>
+                        
                         <li><a href="/posts-output/2021-02-14-discoverable-json-extension/">Discoverable JSON (DJ) Chrome Extension</a></li>
                         
                         <li><a href="/posts-output/2020-05-17-bulk-google-translate-chrome-extension/">Bulk Google Translate Chrome Extension</a></li>
-                        
-                        <li><a href="/posts-output/2020-04-21-leetcode-spiral-print-matrix/">Leetcode 54 - Spiral Matrix in Clojure</a></li>
                         
                     </ul>
                 </div>

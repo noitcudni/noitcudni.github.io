@@ -2,12 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>(polymorphic-labs/blog): Archives</title>
+    <title>(polymorphic-labs/blog): Convert JSON to CSV with Ease</title>
     
-    <meta name="description" content="Programming related stuff">
-    <meta name="keywords" content="">
-    
-    <link rel="canonical" href="https://polymorphiclabs.io/archives/">
+<meta name="keywords" content="chrome webstore,mobile app,cljs,d3,chrome extension,reagent,seo tools,re-natal,leetcode,ios">
+
+<meta name="description" content="How?In my last post, I gave an overview as to how you can use my DJ chrome extension to explore a JSON document. Using the build in find-and-replace and exclude to remove a hierarchical level, etc. In this blog post, I&#39;m going to show you a more concrete use case: converting any JSON documents (however nested) into a csv file.">
+
+<meta property="og:description" content="How?In my last post, I gave an overview as to how you can use my DJ chrome extension to explore a JSON document. Using the build in find-and-replace and exclude to remove a hierarchical level, etc. In this blog post, I&#39;m going to show you a more concrete use case: converting any JSON documents (however nested) into a csv file.">
+
+<meta property="og:url" content="https://polymorphiclabs.io/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/" />
+<meta property="og:title" content="Convert JSON to CSV with Ease" />
+<meta property="og:type" content="article" />
+
+    <link rel="canonical" href="https://polymorphiclabs.io/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
           type="text/css">
@@ -44,7 +51,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li ><a href="/">Home</a></li>
                 <li
-                 class="active" ><a href="/archives/">Archives</a></li>
+                ><a href="/archives/">Archives</a></li>
                 
                 <li
                 >
@@ -65,78 +72,75 @@
         <div class="col-lg-9">
             <div id="content">
                 
-<div id="posts">
-    <div id="page-header">
-        <h2>Archives</h2>
+<div id="post">
+    <div class="post-header">
+    <div id="post-meta" class="row">
+        <div class="col-lg-6">February 27, 2021</div>
+        
     </div>
+    <h2>Convert JSON to CSV with Ease</h2>
+</div>
+<div>
     
-        <h4>2021 February</h4>
-        <ul>
-        
-        <li>
-            Feb 27 - <a href="/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/">Convert JSON to CSV with Ease</a>
-        </li>
-        
-        <li>
-            Feb 14 - <a href="/posts-output/2021-02-14-discoverable-json-extension/">Discoverable JSON (DJ) Chrome Extension</a>
-        </li>
-        
-        </ul>
+    <h2 id="how">How?</h2><p>In my <a href="https://polymorphiclabs.io/posts-output/2021-02-14-discoverable-json-extension/">last post</a>, I gave an overview as to how you can use my <a href="https://chrome.google.com/webstore/detail/discoverable-json/pcakbljjigdafljigcpbmjllkbhlncjg">DJ chrome extension</a> to explore a JSON document. Using the build in <code>find-and-replace</code> and <code>exclude</code> to remove a hierarchical level, etc. In this blog post, I'm going to show you a more concrete use case: converting any JSON documents (however nested) into a csv file.</p><p>Since the nature of JSON can be arbitrarily nested, it doesn't necessarily translate well into a tabular structure, such as CSV. Fortunately, since <a href="https://chrome.google.com/webstore/detail/discoverable-json/pcakbljjigdafljigcpbmjllkbhlncjg">DJ chrome extension</a> flattens all JSON paths to their corresponding Javascript assignment, converting to CSV is almost trivial.</p><h2 id="example">Example</h2><p>Let's say you have the following JSON</p><pre><code>[
+  {
+    "a":1,
+    "b":2,
+    "d":4
+  },
+  {
+    "a":5,
+    "c":6
+  }
+]
+</code></pre><p>When you load the above JSON into the extension and click on <code>download csv</code> on the left, you'll get the csv shown below.
+<img src="../../img/converted_csv.png" alt="Converted CSV" /></p><h2 id="another-example">Another Example</h2><pre><code>[
+  {
+    "a":1,
+    "b":2,
+    "d":4
+  },
+  [{
+    "a":5,
+    "c":6
+  }]
+]
+</code></pre><p>Pretty much the same as the last example, except the second map is wrapped inside an array. By clicking on <code>download csv</code>, you'll get...
+<img src="../../img/converted_csv2.png" alt="Converted CSV2" />
+I have to admit. The end result is not pretty, but if you think about it, it should make sense. <code>0.a</code> denotes an attribute <code>a</code> from a map that's inside an array that's a direct descendent of the top most level. With <code>find-and-replace</code> you can modify this example to remove the array from <code>{"a" :5, "c": 6}</code>, so that the resulting csv file is a bit more sane.</p><h2 id="caveats">Caveats</h2><p>Your JSON's top most level has to be an array. In other words, an array of other stuff.
+If the JSON you are dealing with is sufficiently complicated, you might want to do some preprocessing, such as <code>exclude</code>, <code>filter</code> to narrow down to the data you care about. Otherwise, you probably have to do some clean up on the CSV file.</p>
+</div>
+
+<div id="post-tags">
+    <b>Tags: </b>
     
-        <h4>2020 May</h4>
-        <ul>
-        
-        <li>
-            May 17 - <a href="/posts-output/2020-05-17-bulk-google-translate-chrome-extension/">Bulk Google Translate Chrome Extension</a>
-        </li>
-        
-        </ul>
+    <a href="/tags-output/chrome%20extension/">chrome extension</a>
     
-        <h4>2020 April</h4>
-        <ul>
+</div>
+
+
+    <div id="prev-next">
         
-        <li>
-            Apr 21 - <a href="/posts-output/2020-04-21-leetcode-spiral-print-matrix/">Leetcode 54 - Spiral Matrix in Clojure</a>
-        </li>
         
-        </ul>
+        <a class="right" href="/posts-output/2021-02-14-discoverable-json-extension/">Discoverable JSON (DJ) Chrome Extension &raquo;</a>
+        
+    </div>
+
     
-        <h4>2020 February</h4>
-        <ul>
-        
-        <li>
-            Feb 17 - <a href="/posts-output/2020-02-17-chrome-webstore-rejection/">How my Chrome extension finally got approved again</a>
-        </li>
-        
-        </ul>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_config = function () {
+            this.page.url = "https://polymorphiclabs.io/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/";
+            this.page.identifier = "Convert JSON to CSV with Ease";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//noitcudni-github-io.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
     
-        <h4>2018 December</h4>
-        <ul>
-        
-        <li>
-            Dec 01 - <a href="/posts-output/2018-12-01-workingpoint-ios-app/">An iOS invoicing app built specifically for WorkingPoint</a>
-        </li>
-        
-        </ul>
-    
-        <h4>2018 October</h4>
-        <ul>
-        
-        <li>
-            Oct 22 - <a href="/posts-output/2018-10-22-bulk-google-webmaster-outdated-content-removal/">Chrome Extension: Bulk Google Webmaster Outdated Content Removal</a>
-        </li>
-        
-        </ul>
-    
-        <h4>2018 January</h4>
-        <ul>
-        
-        <li>
-            Jan 13 - <a href="/posts-output/2018-01-13-reagent-d3-force-directed-graph/">Force-directed graph with D3js in Clojurescript</a>
-        </li>
-        
-        </ul>
-    
+
 
 </div>
 
