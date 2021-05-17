@@ -68,60 +68,39 @@
 <div id="post">
     <div class="post-header">
     <div id="post-meta" class="row">
-        <div class="col-lg-6">February 27, 2021</div>
+        <div class="col-lg-6">May 16, 2021</div>
         
     </div>
-    <h2>Convert JSON to CSV with Ease</h2>
+    <h2>Print on Demand Automator Plugin for Figma</h2>
 </div>
 <div>
     
-    <h2 id="how">How?</h2><p>In my <a href="https://polymorphiclabs.io/posts-output/2021-02-14-discoverable-json-extension/">last post</a>, I gave an overview as to how you can use my <a href="https://chrome.google.com/webstore/detail/discoverable-json/pcakbljjigdafljigcpbmjllkbhlncjg">DJ chrome extension</a> to explore a JSON document. Using the build in <code>find-and-replace</code> and <code>exclude</code> to remove a hierarchical level, etc. In this blog post, I'm going to show you a more concrete use case: converting any JSON documents (however nested) into a csv file.</p><p>Since the nature of JSON can be arbitrarily nested, it doesn't necessarily translate well into a tabular structure, such as CSV. Fortunately, since <a href="https://chrome.google.com/webstore/detail/discoverable-json/pcakbljjigdafljigcpbmjllkbhlncjg">DJ chrome extension</a> flattens all JSON paths to their corresponding Javascript assignment, converting to CSV is almost trivial.</p><h2 id="example">Example</h2><p>Let's say you have the following JSON</p><pre><code>[
-  {
-    "a":1,
-    "b":2,
-    "d":4
-  },
-  {
-    "a":5,
-    "c":6
-  }
-]
-</code></pre><p>When you load the above JSON into the extension and click on <code>download csv</code> on the left, you'll get the csv shown below.
-<img src="../../img/converted_csv.png" alt="Converted CSV" /></p><h2 id="another-example">Another Example</h2><pre><code>[
-  {
-    "a":1,
-    "b":2,
-    "d":4
-  },
-  [{
-    "a":5,
-    "c":6
-  }]
-]
-</code></pre><p>Pretty much the same as the last example, except the second map is wrapped inside an array. By clicking on <code>download csv</code>, you'll get...
-<img src="../../img/converted_csv2.png" alt="Converted CSV2" />
-I have to admit. The end result is not pretty, but if you think about it, it should make sense. <code>0.a</code> denotes an attribute <code>a</code> from a map that's inside an array that's a direct descendent of the top most level. With <code>find-and-replace</code> you can modify this example to remove the array from <code>{"a" :5, "c": 6}</code>, so that the resulting csv file is a bit more sane.</p><h2 id="caveats">Caveats</h2><p>Your JSON's top most level has to be an array. In other words, an array of other stuff.
-If the JSON you are dealing with is sufficiently complicated, you might want to do some preprocessing, such as <code>exclude</code>, <code>filter</code> to narrow down to the data you care about. Otherwise, you probably have to do some clean up on the CSV file.</p>
+    <p>I'm going to give you a quick tour of the Figma plugin I just built. This plugin inserts dynamic text content for you in your design and automacitically export the final designs and zip them all up in one large zip file. If you are a designer using Figma and are in the Print on Demand business. This plugin is for you. Here's my <a href="https://www.figma.com/community/plugin/964364318923754744/Print-on-Demand-Automator">Print on Demand Automator - Figma plugin</a>.</p><h2 id="define-dynamic-variables-in-your-design">Define dynamic variables in your design</h2><p>Below is a design example. The first thing you'll notice is that there are two words that are surrounded by curly braces. This is how you define variables.
+<img src="../../img/pod_automator.png" alt="Example POD Design" /></p><h2 id="provide-the-dynamic-content-in-a-csv-file">Provide the dynamic content in a CSV file.</h2><p>You can use any spreadsheet application: Google Sheet, Excel, etc. Make sure that the headers match the variables defined your design without the curly braces.</p><p>For example,
+<img src="../../img/pod_csv.png" alt="Example POD CSV" /></p><h2 id="submit-your-csv-file-to-the-plugin">Submit your CSV file to the plugin</h2><p><img src="../../img/pod_plugin.png" alt="POD plugin" /></p><p>Once you bring up the plugin, submit the CSV file from the previous step by clicking on <code>Submit CSV File</code>.
+The plugin will then take in your submitted CSV file and dynamically replace the <code>foo</code> and <code>bar</code> variables. The final designs will read</p><ol><li>Ianna is adorable</li><li>Jenny is cute</li><li>Lih is lucky</li></ol><p>Also, I'd like to point out that the plugin works across multiple slides on the same page and also across multiple pages.</p><h2 id="provide-a-zip-filename">Provide a zip filename</h2><p>Once the plugin is done doing its thing, it will prompt you to provide a filename. All the final design image files will then be zipped up under that filename.</p><p>That's it folks. Hope you find it useful. If you have any questions and suggestions, please leave them down below.</p>
 </div>
 
 <div id="post-tags">
     <b>Tags: </b>
     
-    <a href="/tags-output/chrome%20extension/">chrome extension</a>
+    <a href="/tags-output/figma%20plugin/">figma plugin</a>
+    
+    <a href="/tags-output/print%20on%20demand/">print on demand</a>
     
 </div>
 
 
     
     <div id="comments">
-        <a href="/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/#disqus_thread">View Comments</a>
+        <a href="/posts-output/2021-05-16-figma-print-on-demand-plugin/#disqus_thread">View Comments</a>
     </div>
     
 
     <div id="prev-next">
         
         
-        <a class="right" href="/posts-output/2021-02-14-discoverable-json-extension/">Discoverable JSON (DJ) Chrome Extension &raquo;</a>
+        <a class="right" href="/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/">Convert JSON to CSV with Ease &raquo;</a>
         
     </div>
 </div>
@@ -144,11 +123,11 @@ If the JSON you are dealing with is sufficiently complicated, you might want to 
                     <h3>Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts-output/2021-05-16-figma-print-on-demand-plugin/">Print on Demand Automator Plugin for Figma</a></li>
+                        
                         <li><a href="/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/">Convert JSON to CSV with Ease</a></li>
                         
                         <li><a href="/posts-output/2021-02-14-discoverable-json-extension/">Discoverable JSON (DJ) Chrome Extension</a></li>
-                        
-                        <li><a href="/posts-output/2020-05-17-bulk-google-translate-chrome-extension/">Bulk Google Translate Chrome Extension</a></li>
                         
                     </ul>
                 </div>
@@ -157,6 +136,10 @@ If the JSON you are dealing with is sufficiently complicated, you might want to 
                 <div id="tags">
                     <h3>Tags</h3>
                     <ul>
+                        
+                        <li><a href="/tags-output/figma%20plugin/">figma plugin</a></li>
+                        
+                        <li><a href="/tags-output/print%20on%20demand/">print on demand</a></li>
                         
                         <li><a href="/tags-output/chrome%20webstore/">chrome webstore</a></li>
                         
