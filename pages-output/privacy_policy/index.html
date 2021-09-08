@@ -2,19 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>(polymorphic-labs/blog): Convert JSON to CSV with Ease</title>
+    <title>(polymorphic-labs/blog): Privacy Policy</title>
     
-<meta name="keywords" content="figma plugin,print on demand,chrome webstore,mobile app,cljs,d3,chrome extension,reagent,seo tools,re-natal,leetcode,ios">
 
-<meta name="description" content="How?In my last post, I gave an overview as to how you can use my DJ chrome extension to explore a JSON document. Using the build in find-and-replace and exclude to remove a hierarchical level, etc. In this blog post, I&#39;m going to show you a more concrete use case: converting any JSON documents (however nested) into a csv file.">
+<meta name="description" content="Do we disclose any information to third parties?We do not sell, trade, or otherwise transfer to 3rd parties your personally identifiable information. This does not include trusted third parties who assist us in operating our web site, conducting our business, or servicing you, so long as those parties agree to keep this information confidential.">
 
-<meta property="og:description" content="How?In my last post, I gave an overview as to how you can use my DJ chrome extension to explore a JSON document. Using the build in find-and-replace and exclude to remove a hierarchical level, etc. In this blog post, I&#39;m going to show you a more concrete use case: converting any JSON documents (however nested) into a csv file.">
+<meta property="og:description" content="Do we disclose any information to third parties?We do not sell, trade, or otherwise transfer to 3rd parties your personally identifiable information. This does not include trusted third parties who assist us in operating our web site, conducting our business, or servicing you, so long as those parties agree to keep this information confidential.">
 
-<meta property="og:url" content="https://polymorphiclabs.io/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/" />
-<meta property="og:title" content="Convert JSON to CSV with Ease" />
+<meta property="og:url" content="https://polymorphiclabs.io/pages-output/privacy_policy/" />
+<meta property="og:title" content="Privacy Policy" />
 <meta property="og:type" content="article" />
 
-    <link rel="canonical" href="https://polymorphiclabs.io/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/">
+    <link rel="canonical" href="https://polymorphiclabs.io/pages-output/privacy_policy/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
           type="text/css">
@@ -72,78 +71,20 @@
         <div class="col-lg-9">
             <div id="content">
                 
-<div id="post">
-    <div class="post-header">
-    <div id="post-meta" class="row">
-        <div class="col-lg-6">February 27, 2021</div>
-        
+<div id="custom-page">
+    <div id="page-header">
+        <h2>Privacy Policy</h2>
     </div>
-    <h2>Convert JSON to CSV with Ease</h2>
-</div>
-<div>
     
-    <h2 id="how">How?</h2><p>In my <a href="https://polymorphiclabs.io/posts-output/2021-02-14-discoverable-json-extension/">last post</a>, I gave an overview as to how you can use my <a href="https://chrome.google.com/webstore/detail/discoverable-json/pcakbljjigdafljigcpbmjllkbhlncjg">DJ chrome extension</a> to explore a JSON document. Using the build in <code>find-and-replace</code> and <code>exclude</code> to remove a hierarchical level, etc. In this blog post, I'm going to show you a more concrete use case: converting any JSON documents (however nested) into a csv file.</p><p>Since the nature of JSON can be arbitrarily nested, it doesn't necessarily translate well into a tabular structure, such as CSV. Fortunately, since <a href="https://chrome.google.com/webstore/detail/discoverable-json/pcakbljjigdafljigcpbmjllkbhlncjg">DJ chrome extension</a> flattens all JSON paths to their corresponding Javascript assignment, converting to CSV is almost trivial.</p><h2 id="example">Example</h2><p>Let's say you have the following JSON</p><pre><code>[
-  {
-    "a":1,
-    "b":2,
-    "d":4
-  },
-  {
-    "a":5,
-    "c":6
-  }
-]
-</code></pre><p>When you load the above JSON into the extension and click on <code>download csv</code> on the left, you'll get the csv shown below.
-<img src="../../img/converted_csv.png" alt="Converted CSV" /></p><h2 id="another-example">Another Example</h2><pre><code>[
-  {
-    "a":1,
-    "b":2,
-    "d":4
-  },
-  [{
-    "a":5,
-    "c":6
-  }]
-]
-</code></pre><p>Pretty much the same as the last example, except the second map is wrapped inside an array. By clicking on <code>download csv</code>, you'll get...
-<img src="../../img/converted_csv2.png" alt="Converted CSV2" />
-I have to admit. The end result is not pretty, but if you think about it, it should make sense. <code>0.a</code> denotes an attribute <code>a</code> from a map that's inside an array that's a direct descendent of the top most level. With <code>find-and-replace</code> you can modify this example to remove the array from <code>{"a" :5, "c": 6}</code>, so that the resulting csv file is a bit more sane.</p><h2 id="caveats">Caveats</h2><p>Your JSON's top most level has to be an array. In other words, an array of other stuff.
-If the JSON you are dealing with is sufficiently complicated, you might want to do some preprocessing, such as <code>exclude</code>, <code>filter</code> to narrow down to the data you care about. Otherwise, you probably have to do some clean up on the CSV file.</p>
-</div>
-
-<div id="post-tags">
-    <b>Tags: </b>
-    
-    <a href="/tags-output/chrome%20extension/">chrome extension</a>
-    
-</div>
-
+    <h2 id="do-we-disclose-any-information-to-third-parties">Do we disclose any information to third parties?</h2><p>We do not sell, trade, or otherwise transfer to 3rd parties your personally identifiable information. This does not include trusted third parties who assist us in operating our web site, conducting our business, or servicing you, so long as those parties agree to keep this information confidential.</p><p>We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety.</p><h2 id="what-information-do-we-collect">What information do we collect?</h2><p>We may collect information from you when you fill out a form, when ordering or registering on our chrome extensions, as appropriate, you may be asked to enter your name or e-mail address. Any data we request that is not required will be specified as voluntary or optional.</p><p>Like most websites, we may use local storage or other similar technologies that are necessary to the proper functioning of our web site, related applications, tools and services, to enhance your experience and track visits to our extensions. Please refer to the "Do we use Cookies and Local Storage?" section below for information about cookies, local storage and how we use them.</p><h2 id="what-do-we-use-your-information-for">What do we use your information for?</h2><p>Any of the information we collect from you may be used for authentication and authorization in our extensions.</p><h2 id="do-we-use-cookies-and-local-storage">Do we use Cookies and Local Storage?</h2><p>No, we don't use Cookies currently; however, we do use local storage to store your license information, so that you don't have to login every time prior to using our extensions.</p><h2 id="california-online-privacy-protection-act-compliance">California Online Privacy Protection Act Compliance</h2><p>Because we value your privacy we have taken the necessary precautions to be in compliance with the California Online Privacy Protection Act. We therefore will not distribute your personal information to outside parties without your consent.</p><h2 id="childrens-online-privacy-protection-act-compliance">Childrens Online Privacy Protection Act Compliance</h2><p>We are in compliance with the requirements of COPPA (Childrens Online Privacy Protection Act). Our products and services are not intended for people under 13 years of age and are not directed at children. We do not knowingly solicit and do not collect personally identifiable information from anyone under 13 years of age.</p><h2 id="changes-to-our-privacy-policy">Changes to our Privacy Policy</h2><p>If we decide to change our privacy policy, we will update the Privacy Policy modification date below.</p><p>This policy was last modified on September 7, 2021</p>
 
     <div id="prev-next">
         
-        <a href="/posts-output/2021-05-16-figma-print-on-demand-plugin/">&laquo; Print on Demand Automator Plugin for Figma</a>
         
         
-        <a class="right" href="/posts-output/2021-02-14-discoverable-json-extension/">Discoverable JSON (DJ) Chrome Extension &raquo;</a>
+        <a href="/pages-output/about/">About &raquo;</a>
         
     </div>
-
-    
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_config = function () {
-            this.page.url = "https://polymorphiclabs.io/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/";
-            this.page.identifier = "Convert JSON to CSV with Ease";
-        };
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//noitcudni-github-io.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    
-
-
 </div>
 
             </div>
