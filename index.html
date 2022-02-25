@@ -68,39 +68,38 @@
 <div id="post">
     <div class="post-header">
     <div id="post-meta" class="row">
-        <div class="col-lg-6">May 16, 2021</div>
+        <div class="col-lg-6">February 24, 2022</div>
         
     </div>
-    <h2>Print on Demand Automator Plugin for Figma</h2>
+    <h2>Make good use of your Google Location Data</h2>
 </div>
 <div>
     
-    <p>I'm going to give you a quick tour of the Figma plugin I just built. This plugin inserts dynamic text content for you in your design, automatically exports the final designs and packages them all up in one large zip file. If you are a designer using Figma and are in the Print on Demand business. This plugin is for you. Here's my <a href="https://www.figma.com/community/plugin/964364318923754744/Print-on-Demand-Automator">Print on Demand Automator - Figma plugin</a>.</p><h2 id="define-dynamic-variables-in-your-design">Define dynamic variables in your design</h2><p>Below is a design example. The first thing you'll notice is that there are two words that are surrounded by curly braces. This is how you define variables.
-<img src="../../img/pod_automator.png" alt="Example POD Design" /></p><h2 id="provide-the-dynamic-content-in-a-csv-file">Provide the dynamic content in a CSV file.</h2><p>You can use any spreadsheet application: Google Sheet, Excel, etc. Make sure that the headers match the variables defined your design without the curly braces.</p><p>For example,
-<img src="../../img/pod_csv.png" alt="Example POD CSV" /></p><h2 id="submit-your-csv-file-to-the-plugin">Submit your CSV file to the plugin</h2><p><img src="../../img/pod_plugin.png" alt="POD plugin" /></p><p>Once you bring up the plugin, submit the CSV file from the previous step by clicking on <code>Submit CSV File</code>.
-The plugin will then take in your submitted CSV file and dynamically replace the <code>foo</code> and <code>bar</code> variables. The final designs will read</p><ol><li>Ianna is adorable</li><li>Jenny is cute</li><li>Lih is lucky</li></ol><p>Also, I'd like to point out that the plugin works across multiple slides on the same page and also across multiple pages.</p><h2 id="provide-a-zip-filename">Provide a zip filename</h2><p>Once the plugin is done doing its thing, it will prompt you to provide a filename. All the final design image files will then be zipped up under that filename.</p><p>That's it folks. Hope you find it useful. If you have any questions and suggestions, please leave them down below.</p>
+    <p>It's tax season here in the US. A friend of mine was trying to find ways to extract his Google Location data into a spreadsheet, where he could easily calculate the total mileage for the year, so that he could write that off as part of his business expense. He tried out several chrome extensions out there, but all of them seemed to run into google's API imposed limit and the much dreaded captcha. He came to me and asked if I could come up with a better work around, so I decided to take a look.</p><p>After some googling, I found that Google has a service called Google Takeout, whereby users can download their personal data, including location data, in one go.</p><p>I wrote a <a href="https://chrome.google.com/webstore/detail/google-takeout-mileage-ti/elgkkibkcchnlkeejelafakjfgfajboi">chrome extension</a> (in clojurescript, of course) that takes in a takeout zip file, unzips it, parses the location json files and displays all the data in a human readable, tabular format. I also added filtering capabilities, download as CSV, etc.</p><p>You can check out my demo video by clicking on the link below.</p><p><a href="https://www.youtube.com/watch?v=slTpU94bHNA&amp;t&amp;t=8s"><img src="https://img.youtube.com/vi/slTpU94bHNA&amp;t/0.jpg" alt="Demo Video" /></a></p><p>I have already gotten some customers using it. Some of them have given me invaluable feedback. I'll release an update soon.</p><p>In case you missed it, here's the link again.</p><p><a href="https://chrome.google.com/webstore/detail/google-takeout-mileage-ti/elgkkibkcchnlkeejelafakjfgfajboi">https://chrome.google.com/webstore/detail/google-takeout-mileage-ti/elgkkibkcchnlkeejelafakjfgfajboi</a></p>
 </div>
 
 <div id="post-tags">
     <b>Tags: </b>
     
-    <a href="/tags-output/figma%20plugin/">figma plugin</a>
+    <a href="/tags-output/google%20location%20timeline/">google location timeline</a>
     
-    <a href="/tags-output/print%20on%20demand/">print on demand</a>
+    <a href="/tags-output/chrome%20extension/">chrome extension</a>
+    
+    <a href="/tags-output/google%20takeout/">google takeout</a>
     
 </div>
 
 
     
     <div id="comments">
-        <a href="/posts-output/2021-05-16-figma-print-on-demand-plugin/#disqus_thread">View Comments</a>
+        <a href="/posts-output/2022-02-24-google-takeout-mileage-and-timeline-exporter/#disqus_thread">View Comments</a>
     </div>
     
 
     <div id="prev-next">
         
         
-        <a class="right" href="/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/">Convert JSON to CSV with Ease &raquo;</a>
+        <a class="right" href="/posts-output/2021-05-16-figma-print-on-demand-plugin/">Print on Demand Automator Plugin for Figma &raquo;</a>
         
     </div>
 </div>
@@ -125,11 +124,11 @@ The plugin will then take in your submitted CSV file and dynamically replace the
                     <h3>Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts-output/2022-02-24-google-takeout-mileage-and-timeline-exporter/">Make good use of your Google Location Data</a></li>
+                        
                         <li><a href="/posts-output/2021-05-16-figma-print-on-demand-plugin/">Print on Demand Automator Plugin for Figma</a></li>
                         
                         <li><a href="/posts-output/2021-02-27-convert-json-to-csv-chrome-extension/">Convert JSON to CSV with Ease</a></li>
-                        
-                        <li><a href="/posts-output/2021-02-14-discoverable-json-extension/">Discoverable JSON (DJ) Chrome Extension</a></li>
                         
                     </ul>
                 </div>
@@ -138,6 +137,8 @@ The plugin will then take in your submitted CSV file and dynamically replace the
                 <div id="tags">
                     <h3>Tags</h3>
                     <ul>
+                        
+                        <li><a href="/tags-output/google%20location%20timeline/">google location timeline</a></li>
                         
                         <li><a href="/tags-output/figma%20plugin/">figma plugin</a></li>
                         
@@ -155,6 +156,8 @@ The plugin will then take in your submitted CSV file and dynamically replace the
                         
                         <li><a href="/tags-output/reagent/">reagent</a></li>
                         
+                        <li><a href="/tags-output/google%20takeout/">google takeout</a></li>
+                        
                         <li><a href="/tags-output/seo%20tools/">seo tools</a></li>
                         
                         <li><a href="/tags-output/re-natal/">re-natal</a></li>
@@ -169,7 +172,7 @@ The plugin will then take in your submitted CSV file and dynamically replace the
             </div>
         </div>
     </div>
-    <footer>Copyright &copy; 2021 Lih Chen
+    <footer>Copyright &copy; 2022 Lih Chen
         <p style="text-align: center;">Powered by <a href="http://cryogenweb.org">Cryogen</a></p></footer>
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
