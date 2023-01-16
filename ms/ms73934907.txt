@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "polymorphiclabs.io",
+  "Id": "a5653a8a-0962-49c3-acbf-be49f615e0f0"
+}
